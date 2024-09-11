@@ -1,100 +1,104 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+import Teams from "./components/team-members";
+import Header from "./components/header";
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+// Load the Cinzel font with custom weights or styles
+
+
+export default function Home() {
+  // Example for rotating images in the hero section
+  const images = [
+    { src: "/image1.jpg", alt: "Image 1" },
+    { src: "/image2.jpg", alt: "Image 2" },
+    { src: "/image3.jpg", alt: "Image 3" },
+  ];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  // Timer for changing hero image
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 5000); // change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      {/* Header */}
+      <Header />
+
+      <div className="flex flex-1 pt-[95px]">
+        {/* Sidebar */}
+        <aside className="bg-neutral-200 w-64 p-4 hidden md:block">
+          <nav className="space-y-4">
+            <a
+              href="#section1"
+              className="block hover:bg-neutral-300 p-2 rounded"
+            >
+              Section 1
+            </a>
+            <a
+              href="#section2"
+              className="block hover:bg-neutral-300 p-2 rounded"
+            >
+              Section 2
+            </a>
+            <a
+              href="#section3"
+              className="block hover:bg-neutral-300 p-2 rounded"
+            >
+              Section 3
+            </a>
+          </nav>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1">
+          {/* Hero Section */}
+          <section className="relative h-96 bg-winter-500">
+            <div className="relative w-full h-full">
+              <Image
+                src={images[currentImage].src}
+                alt={images[currentImage].alt}
+                layout="fill"
+                objectFit="cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-neutral-900 bg-opacity-50 flex items-center justify-center">
+                <h2 className="text-4xl text-white font-bold">
+                  Welcome to Your Site
+                </h2>
+              </div>
+            </div>
+          </section>
+
+          {/* Page Content */}
+          <section
+            id="content"
+            className="flex flex-col items-center justify-center p-8 bg-gray-50"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <h2 className="text-3xl font-bold text-neutral-800 mb-8">
+              CRFC Teams
+            </h2>
+
+            {/* Logos and titles section */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 text-center">
+              <Teams />
+            </div>
+          </section>
+        </main>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-neutral-800 text-white p-4">
+        <div className="container mx-auto text-center">
+          © 2024 The Va Corp. All rights reserved.
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
       </footer>
     </div>
   );
