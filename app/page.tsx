@@ -11,9 +11,10 @@ import Header from "./components/header";
 export default function Home() {
   // Example for rotating images in the hero section
   const images = [
-    { src: "/image1.jpg", alt: "Image 1" },
-    { src: "/image2.jpg", alt: "Image 2" },
-    { src: "/image3.jpg", alt: "Image 3" },
+    { src: "/image1.webp", alt: "Image 1" },
+    { src: "/image2.webp", alt: "Image 2" },
+    { src: "/image3.webp", alt: "Image 3" },
+    { src: "/image4.webp", alt: "Image 3" },
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -66,12 +67,11 @@ export default function Home() {
                 src={images[currentImage].src}
                 alt={images[currentImage].alt}
                 layout="fill"
-                objectFit="cover"
                 priority
               />
               <div className="absolute inset-0 bg-neutral-900 bg-opacity-50 flex items-center justify-center">
                 <h2 className="text-4xl text-white font-bold">
-                  Welcome to Your Site
+                  Welcome
                 </h2>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-neutral-800 text-white p-4">
         <div className="container mx-auto text-center">
-          © 2024 The Va Corp. All rights reserved.
+          © 2024 Crossroad Family Center, All rights reserved.
         </div>
       </footer>
     </div>

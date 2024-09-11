@@ -21,7 +21,7 @@ const teamMembers: TeamMember[] = [
     desc: "Mighty Sandwich Maker",
     hobbies: "Martial Arts, Fortnite",
     rank: "Orange Belt",
-    timeOnMats: 120, // hours
+    timeOnMats: 96, // hours
     totalPeopleHelped: 1,
     dollarsRaised: 300,
   },
@@ -31,7 +31,7 @@ const teamMembers: TeamMember[] = [
     desc: "",
     hobbies: "Yoga, Painting",
     rank: "Light-Blue Belt",
-    timeOnMats: 85, // hours
+    timeOnMats: 100, // hours
     totalPeopleHelped: 5,
     dollarsRaised: 1000,
   },
@@ -41,30 +41,11 @@ const teamMembers: TeamMember[] = [
     desc: "",
     hobbies: "Yoga, Painting",
     rank: "Yellow Belt",
-    timeOnMats: 85, // hours
+    timeOnMats: 64, // hours
     totalPeopleHelped: 1,
-    dollarsRaised: 100,
+    dollarsRaised: 0,
   },
-  {
-    name: "Aj Medina Ramos",
-    src: "/sebastian.png",
-    desc: "",
-    hobbies: "Yoga, Painting",
-    rank: "Yellow Belt",
-    timeOnMats: 85, // hours
-    totalPeopleHelped: 1,
-    dollarsRaised: 100,
-  },
-  {
-    name: "Aj Medina Ramos",
-    src: "/sebastian.png",
-    desc: "",
-    hobbies: "Yoga, Painting",
-    rank: "Yellow Belt",
-    timeOnMats: 85, // hours
-    totalPeopleHelped: 1,
-    dollarsRaised: 100,
-  },
+ 
   // Add more team members here
 ];
 
@@ -75,7 +56,7 @@ const Sidebar: React.FC = () => {
   const totalPeople = teamMembers.reduce((acc, member) => acc + member.totalPeopleHelped, 0);
 
 
-  const progressPercentage = (totalMatsTime / 500) * 100; // Example: 500 is total expected hours
+  const progressPercentage = (totalMatsTime / 80*teamMembers.length) * 100; // Example: 500 is total expected hours
   const goalProgress = (totalDollars / 6000) * 100; // Example: 500 is total expected hours
   const peopleHelpedProgress = (totalPeople / 100) * 100; // Example: 500 is total expected hours
 
@@ -91,7 +72,7 @@ const Sidebar: React.FC = () => {
             style={{ width: `${progressPercentage}%` }}
           ></div>
         </div>
-        <p className="text-sm mt-1">{totalMatsTime} / 500 hours</p>
+        <p className="text-sm mt-1">{totalMatsTime} / {80*teamMembers.length} hours</p>
       </div>
 
       <div className="mb-4">
@@ -159,6 +140,7 @@ const Dashboard: React.FC = () => {
 
       {/* Main content area */}
       <div className="flex-1 bg-gray-100">
+        <h1 className="p-2 text-2xl">Team Monkey</h1>
         <MainContent />
       </div>
     </div>

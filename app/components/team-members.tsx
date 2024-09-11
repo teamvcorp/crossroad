@@ -8,6 +8,11 @@ const teamsArray = [
     src: "/teamLogo.png",
     url: "teams/taekwondo",
   },
+  {
+    name: "Yotae",
+    src: "/yotaeLogo.png",
+    url: "teams/yotae",
+  },
  
 ];
 
