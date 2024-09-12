@@ -28,8 +28,8 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ryann Von Der Becke",
     src: "/sebastian.png",
-    desc: "",
-    hobbies: "Yoga, Painting",
+    desc: "Black Belt Mom",
+    hobbies: "Cooking/baking, reading and crafting.",
     rank: "2nd Dan",
     timeOnMats: 4000, // hours
     totalPeopleHelped: 0,
@@ -66,7 +66,7 @@ const Sidebar: React.FC = () => {
   const totalPeople = teamMembers.reduce((acc, member) => acc + member.totalPeopleHelped, 0);
 
 
-  const progressPercentage = (totalMatsTime / 80*teamMembers.length) * 100; // Example: 500 is total expected hours
+  const progressPercentage = (totalMatsTime / (350*teamMembers.length)) * 100; // Example: 500 is total expected hours
   const goalProgress = (totalDollars / 6000) * 100; // Example: 500 is total expected hours
   const peopleHelpedProgress = (totalPeople / 100) * 100; // Example: 500 is total expected hours
 
@@ -82,7 +82,7 @@ const Sidebar: React.FC = () => {
             style={{ width: `${progressPercentage}%` }}
           ></div>
         </div>
-        <p className="text-sm mt-1">{totalMatsTime} / {80*teamMembers.length} hours</p>
+        <p className="text-sm mt-1">{totalMatsTime} / {350*teamMembers.length} hours</p>
       </div>
 
       <div className="mb-4">

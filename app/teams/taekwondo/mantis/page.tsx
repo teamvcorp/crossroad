@@ -18,8 +18,8 @@ const teamMembers: TeamMember[] = [
   {
     name: "Ian Pearson",
     src: "/sebastian.png",
-    desc: "Some chick",
-    hobbies: "",
+    desc: "I am a strong red head and I am good at fortnite.",
+    hobbies: "I like fortnite and sleep",
     rank: "Orange Belt",
     timeOnMats: 96, // hours
     totalPeopleHelped: 0,
@@ -28,8 +28,8 @@ const teamMembers: TeamMember[] = [
   {
     name: "Emma Von Der Becke",
     src: "/sebastian.png",
-    desc: "Some chick",
-    hobbies: "",
+    desc: "Cute but dangerous!",
+    hobbies: "Playing video games, exercising, playing board games, watching movies, and playing with my friends.",
     rank: "Orange Belt",
     timeOnMats: 120, // hours
     totalPeopleHelped: 0,
@@ -38,8 +38,8 @@ const teamMembers: TeamMember[] = [
   {
     name: "Colton McCardell",
     src: "/sebastian.png",
-    desc: "Some chick",
-    hobbies: "",
+    desc: "Gamer",
+    hobbies: "Playing video games and slepping",
     rank: "Yellow Belt",
     timeOnMats: 120, // hours
     totalPeopleHelped: 0,
@@ -48,7 +48,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Reign Runneburg",
     src: "/sebastian.png",
-    desc: "Some chick",
+    desc: "Some dude",
     hobbies: "",
     rank: "Yellow Belt",
     timeOnMats: 64, // hours
@@ -76,7 +76,7 @@ const Sidebar: React.FC = () => {
   const totalPeople = teamMembers.reduce((acc, member) => acc + member.totalPeopleHelped, 0);
 
 
-  const progressPercentage = (totalMatsTime / 80*teamMembers.length) * 100; // Example: 500 is total expected hours
+  const progressPercentage = (totalMatsTime / (350*teamMembers.length)) * 100; // Example: 500 is total expected hours
   const goalProgress = (totalDollars / 6000) * 100; // Example: 500 is total expected hours
   const peopleHelpedProgress = (totalPeople / 100) * 100; // Example: 500 is total expected hours
 
@@ -92,7 +92,7 @@ const Sidebar: React.FC = () => {
             style={{ width: `${progressPercentage}%` }}
           ></div>
         </div>
-        <p className="text-sm mt-1">{totalMatsTime} / {80*teamMembers.length} hours</p>
+        <p className="text-sm mt-1">{totalMatsTime} / {350*teamMembers.length} hours</p>
       </div>
 
       <div className="mb-4">

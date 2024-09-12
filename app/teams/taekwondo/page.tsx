@@ -56,6 +56,10 @@ const TkdTeams = () => {
           </Link>
         </div>
       </div>
+      <Link href='taekwondo/saythankyou' className="text-blue-500 bg-blue-300 hover:bg-blue-300 hover:text-blue-700 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out px-4 py-2 rounded">
+  Give Support
+</Link>
+
     </div>
   );
 };
