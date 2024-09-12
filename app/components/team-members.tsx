@@ -27,7 +27,7 @@ const Teams = () => {
               alt="Logo 1"
               width="75"
               height="75"
-              className="mx-auto "
+              className="transform transition duration-300 hover:scale-110 mx-auto"
             />
             <p className="mt-2 text-lg font-medium text-neutral-700">
               {team.name}

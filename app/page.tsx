@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 import Teams from "./components/team-members";
 import Header from "./components/header";
 
@@ -31,29 +31,29 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-
+<Header />
       <div className="flex flex-1 pt-[95px]">
         {/* Sidebar */}
         <aside className="bg-neutral-200 w-64 p-4 hidden md:block">
           <nav className="space-y-4">
-            <a
+            <Link
               href="/supportpage"
               className="block hover:bg-neutral-300 p-2 rounded"
             >
               CRFC-Support Page
-            </a>
-            <a
-              href="#section2"
+            </Link>
+            <Link
+              href="/teamsignup"
               className="block hover:bg-neutral-300 p-2 rounded"
             >
-              Section 2
-            </a>
-            <a
-              href="#section3"
+              Team Signup Page
+            </Link>
+            <Link
+              href="/partnerspage"
               className="block hover:bg-neutral-300 p-2 rounded"
             >
-              Section 3
-            </a>
+              Partners Page
+            </Link>
           </nav>
         </aside>
 
@@ -70,7 +70,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-neutral-900 bg-opacity-50 flex items-center justify-center">
                 <h2 className="text-4xl text-white font-bold">
-                  Welcome
+                  Welcome to a better future!
                 </h2>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function Home() {
             className="flex flex-col items-center justify-center p-8 bg-gray-50"
           >
             <h2 className="text-3xl font-bold text-neutral-800 mb-8">
-              CRFC Teams
+              CRFC Team Outreach
             </h2>
 
             {/* Logos and titles section */}

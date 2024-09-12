@@ -16,7 +16,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Crossroad Family Center",
-  description: "A community center organized to give you access to the tool you need to beter yourself, family relations, and life situation.",
+  description:
+    "A community center organized to give you access to the tool you need to beter yourself, family relations, and life situation.",
 };
 
 export default function RootLayout({
