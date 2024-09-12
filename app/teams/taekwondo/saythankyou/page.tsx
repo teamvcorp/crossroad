@@ -30,7 +30,6 @@ export default function PaymentPage() {
       body: JSON.stringify({ amount: parseFloat(amount) * 100 }), // Convert to cents
     });
 
-    const { clientSecret } = await response.json();
 
     // Redirect to Stripe Checkout
     const result = await stripe?.redirectToCheckout({
