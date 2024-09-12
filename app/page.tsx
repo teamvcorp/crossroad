@@ -31,17 +31,16 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <Header />
 
       <div className="flex flex-1 pt-[95px]">
         {/* Sidebar */}
         <aside className="bg-neutral-200 w-64 p-4 hidden md:block">
           <nav className="space-y-4">
             <a
-              href="#section1"
+              href="/supportpage"
               className="block hover:bg-neutral-300 p-2 rounded"
             >
-              Section 1
+              CRFC-Support Page
             </a>
             <a
               href="#section2"
