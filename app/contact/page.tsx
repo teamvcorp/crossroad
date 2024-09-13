@@ -116,6 +116,14 @@ export default function ContactForm() {
           Submit
         </button>
       </form>
+      <div className="mt-8 p-4 border border-gray-300 rounded-md">
+        <h2 className="text-lg font-semibold mb-2">The Von der Becke Academy Corp</h2>
+        <p><strong>DBA Crossroad Family Center</strong></p>
+        <p>Office: 503 Lake Ave N, Storm Lake, IA 50588</p>
+        <p>Phone: 712-299-7124</p>
+        <p className='text-sm'>Taxid: 40-1005883 501C3</p>
+        
+      </div>
     </div>
   );
 }

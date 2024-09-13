@@ -54,6 +54,13 @@ export default function Home() {
             >
               Partners Page
             </Link>
+            <Link
+              href="/impactpage"
+              className="block hover:bg-neutral-300 p-2 rounded"
+            >
+              Community Impact
+            </Link>
+            
           </nav>
         </aside>
 
@@ -96,7 +103,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-neutral-800 text-white p-4">
         <div className="container mx-auto text-center">
-          © 2024 Crossroad Family Center, All rights reserved.
+          © 2024 Crossroad Family Center, All rights reserved. Registerd 501C3 Corporation.
         </div>
       </footer>
     </div>

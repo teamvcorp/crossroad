@@ -12,7 +12,7 @@ const PartnersPage = () => {
       <div className="flex space-x-8">
         {/* First Image */}
         <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
-          <Link href="https://www.walmart.com/" target="">
+          <Link href="https://www.walmart.com/" target="_blank">
             <Image
               src="/wally.jpg"
               alt="Taekwondo Monkey"

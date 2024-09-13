@@ -55,7 +55,7 @@ export default function Home() {
       <h1 className="text-green-500">Amount Raised: <span >$0</span></h1>
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
         <h1 className="text-3xl font-semibold mb-6 text-center">
-          Select Donation Amount
+          Select. Finalize. Share
         </h1>
 
         <div className="space-y-4 mb-8">
