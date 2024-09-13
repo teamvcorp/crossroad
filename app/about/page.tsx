@@ -23,6 +23,52 @@ const page = () => {
           goal: building a healthier, more vibrant community.
         </p>
         <h2>Programs for Everyone</h2>
+        <p>
+          We are proud to offer a wide range of programs that reflect the
+          diversity of interests and needs within our community:
+        </p>
+        <ul>
+          <li>
+            State-of-the-art exercise equipment for strength training and
+            cardio.
+          </li>
+          <li>
+            Daycare facility for families, so you can work out while your little
+            ones are cared for.
+          </li>
+          <li>
+            Taekwondo: Develop discipline, respect, and physical fitness through
+            this dynamic martial art.
+          </li>
+          <li>
+            Yotae: A fusion of yoga and Taekwondo, blending mindfulness with
+            strength and agility.
+          </li>
+          <li>
+            Dance & Gymnastics: Coming soon! Our dance and gymnastics programs
+            will help children and adults express themselves, build
+            coordination, and enjoy the arts.
+          </li>
+          <li>
+            Behavioral Health Programs: Understanding that wellness goes beyond
+            physical fitness, we offer services to support the mental and
+            emotional well-being of our community members.
+          </li>
+        </ul>
+        <h2>A Place Built by the Community, for the Community</h2>
+        <p>
+          Crossroad Community Center exists because of the dedication and
+          support of our community. From the earliest stages of planning to the
+          grand opening, local residents have been involved every step of the
+          way. Volunteers, donors, and leaders have all contributed their time,
+          resources, and passion to make this center a reality. In turn, we
+          strive to give back by offering a welcoming space where families can
+          come together, meet new friends, and pursue activities that promote
+          both personal and collective growth. Whether you are looking to try
+          something new, improve your health, or simply be part of a supportive
+          community, Crossroad Community Center is here for you.
+        </p>
+        
       </div>
     </>
   );
