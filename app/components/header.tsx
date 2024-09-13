@@ -28,7 +28,7 @@ const Header = () => {
           className="transform transition duration-300 hover:scale-110"
         />
         </Link>
-        <h1 className="text-3xl font-bold mx-2">CRFC</h1>
+        <h1 className="hidden md:block text-3xl font-bold mx-2">CRFC</h1>
       </div>
       <nav className='justify-end'>
         <ul className="flex space-x-4">
