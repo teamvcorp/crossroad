@@ -47,6 +47,15 @@ const page = () => {
           <li className="text-lg text-gray-700">
             <strong className="font-bold text-gray-900">Behavioral Health Programs:</strong> Support services for the mental and emotional well-being of our community members.
           </li>
+          <li className="text-lg text-gray-700">
+            <strong className="font-bold text-gray-900">Swimming:</strong>Full size year round lap pool comming soon!
+          </li>
+          <li className="text-lg text-gray-700">
+            <strong className="font-bold text-gray-900">HomeSchool Plus:</strong>Take Homeschooling to the next level with our k-12 partnership and built in leadership and discipline training.
+          </li>
+          <li className="text-lg text-gray-700">
+            <strong className="font-bold text-gray-900">Coding and Mechanics:</strong> Like to tinker with really fast remote control cars or just take things apart, so do we and when we break it we just go code!
+          </li>
         </ul>
       </section>
 
@@ -83,7 +92,7 @@ const page = () => {
           Join Us
         </h2>
         <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">
-          Crossroad Family Center is your community. Whether you're interested in Taekwondo, Yotae, dance, or mental health support,
+          Crossroad Family Center is your community. Whether you're interested in Taekwondo, Yotae, dance, housing, life coaching or mental health support
           we have something for everyone. Together, we will continue to grow and create a positive impact. Join us in building a
           future filled with strength, creativity, and unity.
         </p>

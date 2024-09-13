@@ -18,7 +18,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: "Robert Von Der Becke",
-    src: "/sebastian.png",
+    src: "/robert.png",
     desc: "Mighty Sandwich Maker",
     hobbies: "Martial Arts, Fortnite",
     rank: "4th Dan",
@@ -28,7 +28,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Ryann Von Der Becke",
-    src: "/sebastian.png",
+    src: "/ryann.png",
     desc: "Black Belt Mom",
     hobbies: "Cooking/baking, reading and crafting.",
     rank: "2nd Dan",
@@ -38,7 +38,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Alex Adams",
-    src: "/sebastian.png",
+    src: "/alex.png",
     desc: "",
     hobbies: "Yoga, Painting",
     rank: "Yellow Belt",
@@ -48,7 +48,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Melissa Pearson",
-    src: "/sebastian.png",
+    src: "/melissa.png",
     desc: "",
     hobbies: "Yoga, Painting",
     rank: "Orange Belt",

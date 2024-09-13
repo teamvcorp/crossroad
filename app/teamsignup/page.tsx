@@ -22,7 +22,7 @@ const teamSignup = () => {
 
         {/* Second Image */}
         <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
-          <Link href="/">
+          <Link href="teamsignup/yotae">
             <Image
               src="/yotaeLogo.png"
               alt="Yotae Logo"
@@ -51,6 +51,17 @@ const teamSignup = () => {
               src="/gymnastics.png"
               alt="Gymnastics Logo"
               width={250}
+              height={150}
+            />
+          </Link>
+        </div>
+        {/* Fifth Image */}
+        <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
+          <Link href="teamsignup/ninjacode">
+            <Image
+              src="/ninjaLogo.png"
+              alt="Ninja Code Logo"
+              width={200}
               height={150}
             />
           </Link>

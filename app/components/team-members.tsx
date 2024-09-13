@@ -13,6 +13,11 @@ const teamsArray = [
     src: "/yotaeLogo.png",
     url: "teams/yotae",
   },
+  {
+    name: "Ninja Code",
+    src: "/ninjaLogo.png",
+    url: "teams/ninjacode",
+  },
  
 ];
 

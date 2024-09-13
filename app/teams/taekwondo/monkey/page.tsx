@@ -28,7 +28,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Lily Von Der Becke",
-    src: "/sebastian.png",
+    src: "/lily.png",
     desc: "i am a brown haired girl with brown eyes and i am a light blue belt that sings and that fights my best (i do not like fighting)",
     hobbies: "sining, wirteing, fortnite,t kd",
     rank: "Light-Blue Belt",
@@ -38,7 +38,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Abel Medina Ramos",
-    src: "/sebastian.png",
+    src: "/aj.png",
     desc: "I enjoy playing a lot of sports.",
     hobbies: "Taekwondo, Football, Soccer, Basketball",
     rank: "Yellow Belt",
