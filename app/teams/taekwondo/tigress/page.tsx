@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import BackButton from "@/app/components/backbutton";
 
 // Define the type for a team member
 interface TeamMember {
@@ -55,18 +56,26 @@ const teamMembers: TeamMember[] = [
     totalPeopleHelped: 0,
     dollarsRaised: 0,
   },
- 
+
   // Add more team members here
 ];
 
 const Sidebar: React.FC = () => {
   // Example dynamic progress for the progress bar (time spent on mats)
-  const totalMatsTime = teamMembers.reduce((acc, member) => acc + member.timeOnMats, 0);
-  const totalDollars = teamMembers.reduce((acc, member) => acc + member.dollarsRaised, 0);
-  const totalPeople = teamMembers.reduce((acc, member) => acc + member.totalPeopleHelped, 0);
+  const totalMatsTime = teamMembers.reduce(
+    (acc, member) => acc + member.timeOnMats,
+    0
+  );
+  const totalDollars = teamMembers.reduce(
+    (acc, member) => acc + member.dollarsRaised,
+    0
+  );
+  const totalPeople = teamMembers.reduce(
+    (acc, member) => acc + member.totalPeopleHelped,
+    0
+  );
 
-
-  const progressPercentage = (totalMatsTime / (350*teamMembers.length)) * 100; // Example: 500 is total expected hours
+  const progressPercentage = (totalMatsTime / (350 * teamMembers.length)) * 100; // Example: 500 is total expected hours
   const goalProgress = (totalDollars / 6000) * 100; // Example: 500 is total expected hours
   const peopleHelpedProgress = (totalPeople / 100) * 100; // Example: 500 is total expected hours
 
@@ -82,7 +91,9 @@ const Sidebar: React.FC = () => {
             style={{ width: `${progressPercentage}%` }}
           ></div>
         </div>
-        <p className="text-sm mt-1">{totalMatsTime} / {350*teamMembers.length} hours</p>
+        <p className="text-sm mt-1">
+          {totalMatsTime} / {350 * teamMembers.length} hours
+        </p>
       </div>
 
       <div className="mb-4">
@@ -107,6 +118,7 @@ const Sidebar: React.FC = () => {
       </div>
 
       {/* Add more progress bars here */}
+      <BackButton label="Go back" />
     </div>
   );
 };
@@ -119,15 +131,31 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
   return (
     <div className="bg-white shadow-lg rounded-lg p-4">
       <div className="w-full h-40 relative">
-        <Image src={member.src} alt={member.name} width={100} height={142} className="rounded-md" />
+        <Image
+          src={member.src}
+          alt={member.name}
+          width={100}
+          height={142}
+          className="rounded-md"
+        />
       </div>
       <h3 className="text-xl font-bold mt-4">{member.name}</h3>
       <p className="text-gray-600">{member.desc}</p>
-      <p className="mt-2"><strong>Rank:</strong> {member.rank}</p>
-      <p><strong>Hobbies:</strong> {member.hobbies}</p>
-      <p><strong>Time on Mats:</strong> {member.timeOnMats} hours</p>
-      <p><strong>Total People Helped:</strong> {member.totalPeopleHelped}</p>
-      <p><strong>Dollars Raised:</strong> ${member.dollarsRaised}</p>
+      <p className="mt-2">
+        <strong>Rank:</strong> {member.rank}
+      </p>
+      <p>
+        <strong>Hobbies:</strong> {member.hobbies}
+      </p>
+      <p>
+        <strong>Time on Mats:</strong> {member.timeOnMats} hours
+      </p>
+      <p>
+        <strong>Total People Helped:</strong> {member.totalPeopleHelped}
+      </p>
+      <p>
+        <strong>Dollars Raised:</strong> ${member.dollarsRaised}
+      </p>
     </div>
   );
 };
@@ -150,7 +178,7 @@ const Dashboard: React.FC = () => {
 
       {/* Main content area */}
       <div className="flex-1 bg-gray-100">
-      <h1 className="p-2 text-2xl">Team Tigress</h1>
+        <h1 className="p-2 text-2xl">Team Tigress</h1>
 
         <MainContent />
       </div>

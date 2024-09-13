@@ -10,7 +10,7 @@ const teamSignup = () => {
       <div className="flex items-center space-x-10">
         {/* First Image */}
         <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
-          <Link href="/">
+          <Link href="teamsignup/taekwondo">
             <Image
               src="/teamLogo.png"
               alt="Taekwondo Team Logo"

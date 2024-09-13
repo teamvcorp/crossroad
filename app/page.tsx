@@ -70,7 +70,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-neutral-900 bg-opacity-50 flex items-center justify-center">
                 <h2 className="text-4xl text-white font-bold">
-                  Welcome to a better future!
+                  Crossroad Family Center
                 </h2>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function Home() {
             className="flex flex-col items-center justify-center p-8 bg-gray-50"
           >
             <h2 className="text-3xl font-bold text-neutral-800 mb-8">
-              CRFC Team Outreach
+              CRFC Team Stats
             </h2>
 
             {/* Logos and titles section */}

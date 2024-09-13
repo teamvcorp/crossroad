@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import BackButton from "@/app/components/backbutton";
 
 // Define the type for a team member
 interface TeamMember {
@@ -117,6 +118,8 @@ const Sidebar: React.FC = () => {
       </div>
 
       {/* Add more progress bars here */}
+      <BackButton label="Go back" />
+
     </div>
   );
 };
