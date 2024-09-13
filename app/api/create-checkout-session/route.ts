@@ -6,16 +6,16 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 });
 
 export async function POST(req: NextRequest) {
-  const { priceId } = await req.json(); // Extract priceId from request body
+  const { priceId, quantity, mode } = await req.json(); // Extract priceId from request body
 
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      mode: 'subscription',
+      mode: mode,
       line_items: [
         {
           price: priceId, // The price ID from the front-end
-          quantity: 1,
+          quantity: quantity,
         },
       ],
       success_url: `${req.nextUrl.origin}/success?session_id={CHECKOUT_SESSION_ID}`,

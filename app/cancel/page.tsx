@@ -4,7 +4,7 @@ export default function Cancel() {
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg text-center">
         <h1 className="text-3xl font-semibold text-red-600 mb-6">Payment Canceled</h1>
         <p className="text-lg text-gray-700 mb-8">
-          Your payment was canceled. Please try again later.
+          Your payment was canceled. Thank you for the consideration.
         </p>
         <a
           href="/"
