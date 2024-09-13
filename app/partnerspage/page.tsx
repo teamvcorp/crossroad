@@ -14,7 +14,7 @@ const PartnersPage = () => {
         <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
           <Link href="https://www.walmart.com/" target="">
             <Image
-              src="/wally.jfif"
+              src="/wally.jpg"
               alt="Taekwondo Monkey"
               width={250}
               height={150}
