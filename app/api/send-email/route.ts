@@ -1,11 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+// Define types for ParentInfo and Child
+type Child = {
+  name: string;
+  age: string;
+  dob: string;
+  medicalConditions: string;
+};
+
+type ParentInfo = {
+  name: string;
+  address: string;
+  cell: string;
+  email: string;
+  age: string;
+  option: string;
+};
+
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY!);
 
-// Export the POST method as a named export
 export async function POST(req: NextRequest) {
-  const { parentInfo, children } = await req.json(); // Since NextRequest needs async parsing
+  const { parentInfo, children }: { parentInfo: ParentInfo; children: Child[] } = await req.json(); // Parse the request body
 
   try {
     // Construct email body from form data
@@ -19,13 +35,15 @@ export async function POST(req: NextRequest) {
       Selected Option: ${parentInfo.option}
 
       Children Information:
-      ${children.map((child: any, index: number) => `
+      ${children
+        .map((child, index) => `
         Child ${index + 1}:
         Name: ${child.name}
         Age: ${child.age}
         Date of Birth: ${child.dob}
         Medical Conditions: ${child.medicalConditions}
-      `).join('\n')}
+      `)
+        .join('\n')}
     `;
 
     // Use Resend to send the email
