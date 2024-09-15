@@ -61,7 +61,6 @@ export default function Home() {
 
     setLoading(true);
     const stripe = await stripePromise;
-
     // Call API to create the Checkout Session
     const response = await fetch("/api/create-checkout-session", {
       method: "POST",
@@ -156,7 +155,7 @@ export default function Home() {
               type="number"
               min="1"
               value={quantity}
-              onChange={(e) => setQuantity(Number(e.target.value))}
+              onChange={(e) => setQuantity(e.target.value)}
               className="w-full p-4 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
