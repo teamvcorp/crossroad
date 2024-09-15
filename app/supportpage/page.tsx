@@ -59,7 +59,7 @@ export default function Home() {
     <div className="flex flex-col justify-center items-center bg-[url('/supportBkgd.jpg')] bg-cover bg-center h-screen pt-[300px] sm:pt-[90]">
       <div className="flex items-center">
         <h1 className="">If your asking yourself why, click here</h1>
-        <Link href="/impactpage"><Image className='transform hover:scale-110 transition-transform duration-300'src="/lightbulb.png" width={50} height={50}/></Link>
+        <Link href="/impactpage"><Image className='transform hover:scale-110 transition-transform duration-300'src="/lightbulb.png" width={50} height={50} alt='Just an idea'/></Link>
       </div>
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
         <h1 className="text-3xl font-semibold mb-6 text-center">
