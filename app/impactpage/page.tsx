@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { revalidatePath } from "next/cache";
 
 interface BlogPost {
   id: string;
@@ -30,8 +31,8 @@ const HomePage = () => {
     };
 
     fetchPosts();
-  }, [posts]); // Empty dependency array means this only runs once, on component mount
-
+  }, []); // Empty dependency array means this only runs once, on component mount
+revalidatePath('/impactpage')
   return (
     <div className="flex h-screen pt-[90px]">
       {/* Sidebar */}
