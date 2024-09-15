@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { revalidatePath } from "next/cache";
+import { FaBars } from "react-icons/fa";
 
 interface BlogPost {
   id: string;
@@ -12,6 +12,7 @@ interface BlogPost {
 
 const HomePage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [reload, setReload] = useState(false);
   const [posts, setPosts] = useState<BlogPost[][]>([]); // Store posts as an array of arrays
   const [loading, setLoading] = useState(false);
 
@@ -31,8 +32,7 @@ const HomePage = () => {
     };
 
     fetchPosts();
-  }, []); // Empty dependency array means this only runs once, on component mount
-revalidatePath('/impactpage')
+  }, [reload]); // Empty dependency array means this only runs once, on component mount
   return (
     <div className="flex h-screen pt-[90px]">
       {/* Sidebar */}
@@ -47,19 +47,19 @@ revalidatePath('/impactpage')
           </button>
         </div>
         <div className="mt-10">
-          <p>Sidebar Content</p>
+          <button onClick={()=> setReload((prev)=>!prev)}>Reload</button>
         </div>
       </aside>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Collapsible Sidebar Button */}
-        {/* <div className="p-4 bg-gray-200 flex justify-between items-center">
+        <div className="p-4 bg-gray-200 flex justify-between items-center">
           <button onClick={() => setSidebarOpen(true)} className="text-gray-700">
             <FaBars size={24} />
           </button>
       
-        </div> */}
+        </div>
 
         {/* Blog Feed */}
         <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
