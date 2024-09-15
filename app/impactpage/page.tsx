@@ -19,7 +19,7 @@ const HomePage = () => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("/api/get-blog-posts");
+        const response = await fetch(`${window.location.origin}/api/get-blog-posts`);
         const data = await response.json();
         setPosts(data); // Set the posts fetched from the API
       } catch (error) {
