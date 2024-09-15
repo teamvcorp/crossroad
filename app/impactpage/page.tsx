@@ -30,7 +30,7 @@ const HomePage = () => {
     };
 
     fetchPosts();
-  }, []); // Empty dependency array means this only runs once, on component mount
+  }, [posts]); // Empty dependency array means this only runs once, on component mount
 
   return (
     <div className="flex h-screen pt-[90px]">

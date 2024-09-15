@@ -2,8 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
-// import { useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 
 // Define the type for price options
@@ -19,7 +18,7 @@ const stripePromise: Promise<Stripe | null> = loadStripe(
 );
 
 export default function Home() {
-  // const router = useRouter();
+  const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [selectedPriceId, setSelectedPriceId] = useState<string>(""); // Track selected price ID
@@ -115,7 +114,7 @@ export default function Home() {
     } catch (error) {
       console.error("Error adding blog post:", error);
     } finally {
-      revalidatePath('/impactpage')
+    router.push('/impactpage')
       setLoading(false);
     }
   };
