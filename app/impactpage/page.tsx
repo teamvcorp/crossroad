@@ -1,8 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { FaBars } from 'react-icons/fa';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from "react";
 
 interface BlogPost {
   id: string;
@@ -13,21 +11,19 @@ interface BlogPost {
 
 const HomePage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [authorInput, setAuthorInput] = useState('');
   const [posts, setPosts] = useState<BlogPost[][]>([]); // Store posts as an array of arrays
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   // Fetch blog posts from the API when the component mounts
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch('/api/get-blog-posts');
+        const response = await fetch("/api/get-blog-posts");
         const data = await response.json();
         setPosts(data); // Set the posts fetched from the API
       } catch (error) {
-        console.error('Error fetching blog posts:', error);
+        console.error("Error fetching blog posts:", error);
       } finally {
         setLoading(false);
       }
@@ -36,17 +32,12 @@ const HomePage = () => {
     fetchPosts();
   }, []); // Empty dependency array means this only runs once, on component mount
 
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setAuthorInput(e.target.value);
-  };
-
   return (
     <div className="flex h-screen pt-[90px]">
       {/* Sidebar */}
       <aside
         className={`mt-[90px] fixed top-0 left-0 h-full bg-gray-800 p-5 text-white transform ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out z-10`}
       >
         <div className="text-right">
