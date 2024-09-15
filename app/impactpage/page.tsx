@@ -70,7 +70,7 @@ const HomePage = () => {
                 {authorPosts.map((post) => (
                   <div key={post.id} className="border-b pb-4">
                     <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-                    <p className="italic text-gray-500">By {post.author}</p>
+                    <p className="italic text-gray-500">For {post.author}</p>
                     <p>{post.content}</p>
                   </div>
                 ))}

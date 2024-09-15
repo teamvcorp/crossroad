@@ -2,6 +2,8 @@
 
 import { useState, FormEvent } from "react";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 // Define the type for price options
 interface PriceOption {
@@ -16,6 +18,7 @@ const stripePromise: Promise<Stripe | null> = loadStripe(
 );
 
 export default function Home() {
+  const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [selectedPriceId, setSelectedPriceId] = useState<string>(""); // Track selected price ID
@@ -102,14 +105,16 @@ export default function Home() {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log("Blog post added:", data);
+        toast.success('Your message has been recieved!')
+        console.log("Blog post added:");
       } else {
+        toast.error('Your message was lost, please try again.')
         console.error("Failed to add blog post");
       }
     } catch (error) {
       console.error("Error adding blog post:", error);
     } finally {
+      router.push('/impactpage')
       setLoading(false);
     }
   };
