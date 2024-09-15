@@ -36,10 +36,6 @@ const HomePage = () => {
     fetchPosts();
   }, []); // Empty dependency array means this only runs once, on component mount
 
-  const handleFilter = (e: FormEvent) => {
-    e.preventDefault();
-    router.push(`/?author=${authorInput}`);
-  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setAuthorInput(e.target.value);
@@ -66,23 +62,12 @@ const HomePage = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Collapsible Sidebar Button */}
-        <div className="p-4 bg-gray-200 flex justify-between items-center">
+        {/* <div className="p-4 bg-gray-200 flex justify-between items-center">
           <button onClick={() => setSidebarOpen(true)} className="text-gray-700">
             <FaBars size={24} />
           </button>
-          <form onSubmit={handleFilter} className="flex items-center">
-            <input
-              type="text"
-              value={authorInput}
-              onChange={handleInputChange}
-              placeholder="Filter by author"
-              className="border p-2 rounded-md"
-            />
-            <button type="submit" className="ml-2 p-2 bg-blue-500 text-white rounded-md">
-              Filter
-            </button>
-          </form>
-        </div>
+      
+        </div> */}
 
         {/* Blog Feed */}
         <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

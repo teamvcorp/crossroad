@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import Link from "next/link";
+import Image from "next/image";
 // Initialize Stripe
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
@@ -56,9 +57,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-center items-center bg-[url('/supportBkgd.jpg')] bg-cover bg-center h-screen pt-[300px] sm:pt-[90]">
-      <div>
+      <div className="flex items-center">
         <h1 className="">If your asking yourself why, click here</h1>
-        <Link href="/impactpage">Light Bulb</Link>
+        <Link href="/impactpage"><Image className='transform hover:scale-110 transition-transform duration-300'src="/lightbulb.png" width={50} height={50}/></Link>
       </div>
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
         <h1 className="text-3xl font-semibold mb-6 text-center">
