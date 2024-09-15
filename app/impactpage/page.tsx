@@ -1,7 +1,5 @@
 "use client";
-
 import { useState, useEffect } from "react";
-import { FaBars } from "react-icons/fa";
 
 interface BlogPost {
   id: string;
@@ -11,17 +9,16 @@ interface BlogPost {
 }
 
 const HomePage = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [reload, setReload] = useState(false);
-  const [posts, setPosts] = useState<BlogPost[][]>([]); // Store posts as an array of arrays
-  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState<BlogPost[][]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  // Fetch blog posts from the API when the component mounts
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`${window.location.origin}/api/get-blog-posts`);
+        const response = await fetch(
+          `${window.location.origin}/api/get-blog-posts`
+        );
         const data = await response.json();
         setPosts(data); // Set the posts fetched from the API
       } catch (error) {
@@ -32,35 +29,71 @@ const HomePage = () => {
     };
 
     fetchPosts();
-  }, [reload]); // Empty dependency array means this only runs once, on component mount
+  }, []); // Empty dependency array means this only runs once, on component mount
+
   return (
-    <div className="flex h-screen pt-[90px]">
-      {/* Sidebar */}
-      <aside
-        className={`mt-[90px] fixed top-0 left-0 h-full bg-gray-800 p-5 text-white transform ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out z-10`}
-      >
-        <div className="text-right">
-          <button onClick={() => setSidebarOpen(false)} className="text-white">
-            Close
-          </button>
-        </div>
-        <div className="mt-10">
-          <button onClick={()=> setReload((prev)=>!prev)}>Reload</button>
+    <div className="flex h-screen">
+      {/* Sidebar - Always open */}
+      <aside className="bg-gray-800 text-white w-64 p-5 pt-[90px] fixed h-full">
+        <div className="w-full bg-gray-700 p-4 rounded-lg">
+          <h1 className="text-white text-1xl font-bold mb-4">
+            Member Benefits
+          </h1>
+
+          <ul className="list-none m-0 p-0">
+            <li className="text-white p-2 border-b border-gray-600">
+              $5 Day Camps
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Sponsored Training*
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Homeschool Plus !
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Ninja Code
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Free Child Care***
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Advanced Tutoring
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Behavioral Health
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Group Fitness
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Pool Access**
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Crossfit Equipment**
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Indoor Track**
+            </li>
+            <li className="text-white p-2 border-b border-gray-600">
+              Healthy Foods**
+            </li>
+          </ul>
+          <p className="text-white p-2 border-b border-gray-600">
+            *Requires Tryouts
+          </p>
+          <p className="text-white p-2 border-b border-gray-600">
+            **Coming soon
+          </p>
+          <p className="text-white p-2 border-b border-gray-600">
+            ***While Training
+          </p>
         </div>
       </aside>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Collapsible Sidebar Button */}
-        <div className="p-4 bg-gray-200 flex justify-between items-center">
-          <button onClick={() => setSidebarOpen(true)} className="text-gray-700">
-            <FaBars size={24} />
-          </button>
-      
-        </div>
-
+      {/* Main Content shifted right to accommodate sidebar */}
+      <div className="flex-1 flex flex-col pl-64 pt-[90px]">
+        {" "}
+        {/* Adjust pl (padding-left) to sidebar's width */}
         {/* Blog Feed */}
         <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {loading ? (
@@ -81,6 +114,7 @@ const HomePage = () => {
             <p>No posts found.</p>
           )}
         </div>
+        <h1>Image Gallery Coming Soon</h1>
       </div>
     </div>
   );

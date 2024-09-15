@@ -81,9 +81,9 @@ export default function Home() {
     setLoading(false);
   };
   return (
-    <div className="flex flex-col justify-center items-center bg-[url('/supportBkgd.jpg')] bg-cover bg-center h-screen pt-[300px] sm:pt-[90]">
-      <div className="flex items-center">
-        <h1>If you're asking yourself why, click here</h1>
+    <div className="flex flex-col justify-start gap-10 items-center bg-[url('/supportBkgd.jpg')] bg-cover bg-center h-screen pt-[90px]">
+      <div className="flex items-center mt-20">
+        <h1 className='text-xl mr-2'>Why should you donate? CLICK HERE</h1>
         <Link href="/impactpage">
           <Image
             className="transform hover:scale-110 transition-transform duration-300"
