@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { toast } from "react-hot-toast";
 
@@ -19,7 +19,7 @@ const stripePromise: Promise<Stripe | null> = loadStripe(
 );
 
 export default function Home() {
-  const router = useRouter();
+  // const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [selectedPriceId, setSelectedPriceId] = useState<string>(""); // Track selected price ID
