@@ -15,6 +15,8 @@ export default function Home() {
     { src: "/image2.webp", alt: "Image 2" },
     { src: "/image3.webp", alt: "Image 3" },
     { src: "/image4.webp", alt: "Image 3" },
+    { src: "/coders.webp", alt: "Ninja Code" },
+    { src: "/gymnastics.webp", alt: "Gymnastics" },
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
