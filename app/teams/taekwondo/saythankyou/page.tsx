@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { toast } from "react-hot-toast";
 
 // Define the type for price options
@@ -114,7 +115,7 @@ export default function Home() {
     } catch (error) {
       console.error("Error adding blog post:", error);
     } finally {
-      router.push('/impactpage')
+      revalidatePath('/impactpage')
       setLoading(false);
     }
   };
