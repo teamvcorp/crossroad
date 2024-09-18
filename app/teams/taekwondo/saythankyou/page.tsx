@@ -160,7 +160,7 @@ export default function Home() {
               type="number"
               min="1"
               value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
               className="w-full p-4 border rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
