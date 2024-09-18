@@ -55,6 +55,16 @@ const TkdTeams = () => {
             />
           </Link>
         </div>
+        <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
+          <Link href="taekwondo/tornado">
+            <Image
+              src="/tornado.png"
+              alt="Taekwondo Tornado"
+              width={150}
+              height={150}
+            />
+          </Link>
+        </div>
       </div>
       <Link href='taekwondo/saythankyou' className="text-blue-500 bg-blue-300 hover:bg-blue-300 hover:text-blue-700 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out px-4 py-2 rounded">
   Give Support

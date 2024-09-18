@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import ImageGallery from "../components/image-gallery";
 
 interface BlogPost {
   id: string;
@@ -100,7 +101,10 @@ const HomePage = () => {
             <p>Loading...</p>
           ) : posts.length > 0 ? (
             posts.map((authorPosts, index) => (
-              <div key={index} className="border p-4 flex flex-col space-y-4">
+              <div
+                key={index}
+                className="border p-4 flex flex-col space-y-4 max-h-[40vh] overflow-y-auto"
+              >
                 {authorPosts.map((post) => (
                   <div key={post.id} className="border-b pb-4">
                     <h2 className="text-xl font-bold mb-2">{post.title}</h2>
@@ -114,7 +118,10 @@ const HomePage = () => {
             <p>No posts found.</p>
           )}
         </div>
-        <h1>Image Gallery Coming Soon</h1>
+        <ImageGallery />
+        <p className="flex justify-center">
+          Let's go Storm lake time to fill this page with your projects!
+        </p>
       </div>
     </div>
   );

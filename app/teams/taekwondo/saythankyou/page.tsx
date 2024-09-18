@@ -46,6 +46,11 @@ export default function Home() {
       amount: "$5.00",
       teamname: "Team Mantis",
     },
+    {
+      id: "price_1PzpA5FOfT7vP5JsCwqM7bJ6",
+      amount: "$5.00",
+      teamname: "Team Tornado",
+    },
   ];
 
   const handleCheckout = async (): Promise<void> => {
