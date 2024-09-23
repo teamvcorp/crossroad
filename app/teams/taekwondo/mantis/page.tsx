@@ -49,7 +49,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Reign Runneburg",
     src: "/reign.png",
-    desc: "Some dude",
+    desc: "Focus Champion",
     hobbies: "",
     rank: "Yellow Belt",
     timeOnMats: 64, // hours
@@ -58,8 +58,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Alesya Rios",
-    src: "/sebastian.png",
-    desc: "Some chick",
+    src: "/alesya.png",
+    desc: "Black Belt hopefull",
     hobbies: "",
     rank: "Yellow Belt",
     timeOnMats: 120, // hours

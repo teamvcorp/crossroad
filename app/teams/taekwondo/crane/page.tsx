@@ -18,7 +18,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: "Lydia Costilla",
-    src: "/sebastian.png",
+    src: "/lydia.png",
     desc: "Mighty Sandwich Maker",
     hobbies: "Martial Arts, Fortnite",
     rank: "White Belt",
@@ -28,7 +28,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Moriah Costilla",
-    src: "/sebastian.png",
+    src: "/moriah.png",
     desc: "",
     hobbies: "Yoga, Painting",
     rank: "White Belt",
@@ -38,7 +38,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Adam Costilla",
-    src: "/sebastian.png",
+    src: "/adam.png",
     desc: "",
     hobbies: "Yoga, Painting",
     rank: "White Belt",
@@ -48,7 +48,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Jazlyn Arambula",
-    src: "/sebastian.png",
+    src: "/jazlyn.png",
     desc: "",
     hobbies: "Yoga, Painting",
     rank: "White Belt",
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Audrey Valle",
-    src: "/sebastian.png",
+    src: "/audrey.png",
     desc: "",
     hobbies: "Yoga, Painting",
     rank: "White Belt",
