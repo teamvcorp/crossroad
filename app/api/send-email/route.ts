@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     const data = await resend.emails.send({
       from: 'noreply@rbttoolkit.com', // Replace with a verified sender email
       to: 'teamvcorp@thevacorp.com', // Replace with the recipient's email
-      subject: 'Parent and Children Information Submission',
+      subject: '#contract Parent and Children Information Submission',
       text: emailBody, // Body of the email containing the parent and children data
     });
 

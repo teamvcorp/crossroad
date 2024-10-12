@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     const data = await resend.emails.send({
       from: 'noreply@rbttoolkit.com', // Replace with a verified sender email
       to: 'teamvcorp@thevacorp.com', // Replace with the recipient's email
-      subject: 'Help Request Form Submission',
+      subject: '@Help Request Form Submission',
       text: emailBody, // Body of the email containing the form data
     });
 
