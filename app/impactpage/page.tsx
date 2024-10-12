@@ -10,19 +10,20 @@ interface BlogPost {
 }
 
 const HomePage = () => {
-  console.log('888888page loaded')
   const [posts, setPosts] = useState<BlogPost[][]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [showGallery, setShowGallery] = useState<boolean>(false); // State to control ImageGallery visibility
+  const [refreshState, setRefreshState] = useState<boolean>(false); // State to control ImageGallery visibility
 
   useEffect(() => {
-    console.log('*****useeffect ran')
+    console.log("*****useeffect ran");
     const fetchPosts = async () => {
       setLoading(true);
       try {
         const response = await fetch(
           `${window.location.origin}/api/get-blog-posts`
         );
-        console.log(`${window.location.origin}/api/get-blog-posts`)
+        console.log(`${window.location.origin}/api/get-blog-posts`);
         const data = await response.json();
         setPosts(data); // Set the posts fetched from the API
       } catch (error) {
@@ -33,7 +34,7 @@ const HomePage = () => {
     };
 
     fetchPosts();
-  }, []); // Empty dependency array means this only runs once, on component mount
+  }, [refreshState]); // Empty dependency array means this only runs once, on component mount
 
   return (
     <div className="flex h-screen">
@@ -96,7 +97,6 @@ const HomePage = () => {
 
       {/* Main Content shifted right to accommodate sidebar */}
       <div className="flex-1 flex flex-col pl-64 pt-[90px]">
-        {" "}
         {/* Adjust pl (padding-left) to sidebar's width */}
         {/* Blog Feed */}
         <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -118,13 +118,34 @@ const HomePage = () => {
               </div>
             ))
           ) : (
-            <p>No posts found.</p>
+            <>
+              <p>No posts found.</p>
+              <button
+                onClick={() => setRefreshState((prev) => !prev)}
+                className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+              >
+                Refresh
+              </button>
+            </>
           )}
         </div>
-        <ImageGallery />
+
+        {/* Conditionally hide the ImageGallery */}
+        <div className={showGallery ? "" : "hidden"}>
+          <ImageGallery />
+        </div>
+
         <p className="flex justify-center">
           Let's go Storm lake time to fill this page with your projects!
         </p>
+
+        {/* Button to toggle ImageGallery visibility */}
+        <button
+          onClick={() => setShowGallery((prev) => !prev)}
+          className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+        >
+          {showGallery ? "Hide" : "Show"} Image Gallery
+        </button>
       </div>
     </div>
   );
