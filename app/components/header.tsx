@@ -36,6 +36,7 @@ const Header = () => {
           <Link href="/about" className='hover:bg-neutral-300 p-1 rounded'>About</Link>
           <Link href="/contact" className='hover:bg-neutral-300 p-1 rounded'>Contact</Link>
           <Link href="/impactpage" className='hover:bg-neutral-300 p-1 rounded'>Impact</Link>
+          <Link href="/help" className='hover:bg-neutral-300 p-1 rounded'>Reach Out</Link>
         </ul>
       </nav>
     </div>

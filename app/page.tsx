@@ -62,6 +62,12 @@ export default function Home() {
             >
               Community Impact
             </Link>
+            <Link
+              href="/help"
+              className="block hover:bg-neutral-300 p-2 rounded"
+            >
+              Reach Out
+            </Link>
             
           </nav>
         </aside>
