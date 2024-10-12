@@ -10,16 +10,19 @@ interface BlogPost {
 }
 
 const HomePage = () => {
+  console.log('888888page loaded')
   const [posts, setPosts] = useState<BlogPost[][]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    console.log('*****useeffect ran')
     const fetchPosts = async () => {
       setLoading(true);
       try {
         const response = await fetch(
           `${window.location.origin}/api/get-blog-posts`
         );
+        console.log(`${window.location.origin}/api/get-blog-posts`)
         const data = await response.json();
         setPosts(data); // Set the posts fetched from the API
       } catch (error) {

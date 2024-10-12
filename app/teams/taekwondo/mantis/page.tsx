@@ -60,7 +60,7 @@ const teamMembers: TeamMember[] = [
     name: "Alesya Rios",
     src: "/alesya.png",
     desc: "Black Belt hopefull",
-    hobbies: "",
+    hobbies: "Taekwondo, Gymnastics, cuteness",
     rank: "Yellow Belt",
     timeOnMats: 120, // hours
     totalPeopleHelped: 0,

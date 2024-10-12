@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '../../../lib/prisma'; // Adjust path as necessary for your setup
 import { BlogPost } from '@prisma/client'; // Import the BlogPost type from Prisma
-
+console.log('api called')
 export async function GET() {
   try {
     // Fetch all blog posts from the database
@@ -10,7 +10,6 @@ export async function GET() {
         author: 'asc', // Sort by author in ascending order
       },
     });
-console.log(blogPosts)
     // Group blog posts by author
     const groupedByAuthor: { [author: string]: BlogPost[] } = blogPosts.reduce((acc, post) => {
       if (!acc[post.author]) {
@@ -19,10 +18,11 @@ console.log(blogPosts)
       acc[post.author].push(post);
       return acc;
     }, {} as { [author: string]: BlogPost[] });
-
+    
     // Convert grouped object into an array of arrays
     const result: BlogPost[][] = Object.values(groupedByAuthor);
-
+    
+    console.log(result)
     // Return the response as JSON
     return NextResponse.json(result);
   } catch (error) {
