@@ -16,7 +16,7 @@ const HomePage = () => {
   const [refreshState, setRefreshState] = useState<boolean>(false); // State to control ImageGallery visibility
 
   useEffect(() => {
-    console.log("*****useeffect ran");
+    
     const fetchPosts = async () => {
       setLoading(true);
       try {

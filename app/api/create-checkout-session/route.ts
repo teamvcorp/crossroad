@@ -6,7 +6,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 });
 
 export async function POST(req: NextRequest) {
-  const { priceId, amount, mode, quantity } = await req.json(); // Extract details from request body
+  const { priceId, amount, mode, quantity, name } = await req.json(); // Extract details from request body
+  console.log(name)
   try {
     let lineItems: Stripe.Checkout.SessionCreateParams.LineItem[];
 
@@ -16,7 +17,7 @@ export async function POST(req: NextRequest) {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: 'One-Time Support',
+            name: name,
           },
           unit_amount: amount, // Amount in cents
         },
