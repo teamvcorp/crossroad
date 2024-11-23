@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from "react";
 
 const HelpRequestForm = () => {
@@ -15,14 +16,16 @@ const HelpRequestForm = () => {
     bestTime: "morning",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
