@@ -1,47 +1,154 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import { cn } from '@/lib/utils'
-import { Cinzel } from "next/font/google";
+'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { cn } from '@/lib/utils';
+import { Cinzel } from 'next/font/google';
 
 const cinzel = Cinzel({
-  subsets: ["latin"], // You can specify the subset you need
-  weight: ["400", "700"], // Specify the weights you're going to use
+  subsets: ['latin'],
+  weight: ['400', '700'],
 });
 
 const Header = () => {
-  return (
-    <header className="fixed top-0 left-0 w-full bg-gray-300 bg-opacity-50 rounded-b-2xl shadow-md z-50">
-    <div className="container mx-4 my-2 flex justify-between items-center min-w-full pr-[50px]">
-      <div
-        className={cn(
-          `flex flex-row items-center tracking-widest ${cinzel.className}`
-        )}
-      >
-        <Link href='/'>
-        <Image
-          src="/crLogoWeb.png"
-          alt="Crossroads logo"
-          width="75"
-          height="75"
-          className="transform transition duration-300 hover:scale-110"
-        />
-        </Link>
-        <h1 className="hidden md:block text-3xl font-bold mx-2">CRFC</h1>
-      </div>
-      <nav className='justify-end'>
-        <ul className="flex space-x-4">
-          <Link href="/" className='hover:bg-neutral-300 p-1 rounded'>Home</Link>
-          <Link href="/about" className='hover:bg-neutral-300 p-1 rounded'>About</Link>
-          <Link href="/contact" className='hover:bg-neutral-300 p-1 rounded'>Contact</Link>
-          <Link href="/impactpage" className='hover:bg-neutral-300 p-1 rounded'>Impact</Link>
-          <Link href="/help" className='hover:bg-neutral-300 p-1 rounded'>Reach Out</Link>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  )
-}
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-export default Header
+  return (
+    <header className="fixed top-0 left-0 w-full bg-blue-700 bg-opacity-90 shadow-lg z-50">
+      <div className="container mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo Section */}
+        <div
+          className={cn(
+            `flex flex-row items-center tracking-widest ${cinzel.className}`
+          )}
+        >
+          <Link href="/">
+            <Image
+              src="/crLogoWeb.png"
+              alt="Crossroads logo"
+              width={60}
+              height={60}
+              className="transform transition-transform duration-300 hover:scale-110"
+            />
+          </Link>
+          <h1 className="hidden sm:block text-2xl font-bold text-white ml-4">
+            Crossroad Family Center
+          </h1>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex">
+          <ul className="flex space-x-6">
+            <li>
+              <Link
+                href="/"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/impactpage"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+              >
+                Impact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/help"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+              >
+                Reach Out
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button
+            className="text-white text-3xl focus:outline-none hover:text-yellow-400"
+            aria-label="Open Menu"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="bg-blue-700 bg-opacity-95 md:hidden">
+          <ul className="flex flex-col items-center space-y-4 py-4">
+            <li>
+              <Link
+                href="/"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/impactpage"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Impact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/help"
+                className="text-white text-lg hover:text-yellow-400 transition-colors duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Reach Out
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
