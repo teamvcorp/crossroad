@@ -2,75 +2,100 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const teamSignup = () => {
+const TeamSignup = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h1 className="py-8 text-4xl uppercase tracking-wider">Team Selection</h1>
-      {/* Flex container to align images in a row */}
-      <div className="flex items-center space-x-10">
-        {/* First Image */}
-        <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
-          <Link href="teamsignup/taekwondo">
-            <Image
-              src="/teamLogo.png"
-              alt="Taekwondo Team Logo"
-              width={150}
-              height={150}
-            />
-          </Link>
-        </div>
+    <div className="min-h-screen flex flex-col bg-blue-600 text-white pt-[95px]">
+      {/* Header Section */}
+      <header className="py-12 bg-blue-700">
+        <h1 className="text-5xl font-bold text-center drop-shadow-lg">
+          Select Your Team
+        </h1>
+      </header>
 
-        {/* Second Image */}
-        <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
-          <Link href="teamsignup/yotae">
-            <Image
-              src="/yotaeLogo.png"
-              alt="Yotae Logo"
-              width={200}
-              height={150}
-            />
-          </Link>
+      {/* Team Selection Section */}
+      <main className="flex flex-1 items-center justify-center py-12 px-6">
+        <div className="flex flex-wrap items-center justify-center gap-8 max-w-6xl">
+          {[
+            {
+              href: "teamsignup/taekwondo",
+              src: "/teamLogo.png",
+              alt: "Taekwondo Team Logo",
+              width: 150,
+              height: 150,
+              label: "Taekwondo",
+            },
+            {
+              href: "teamsignup/yotae",
+              src: "/yotaeLogo.png",
+              alt: "Yotae Logo",
+              width: 200,
+              height: 150,
+              label: "Yotae",
+            },
+            {
+              href: "teamsignup/dance",
+              src: "/dance.png",
+              alt: "Dance Logo",
+              width: 150,
+              height: 150,
+              label: "Dance",
+            },
+            {
+              href: "teamsignup/gymnastics",
+              src: "/gymnastics.png",
+              alt: "Gymnastics Logo",
+              width: 250,
+              height: 150,
+              label: "Gymnastics",
+            },
+            {
+              href: "teamsignup/ninjacode",
+              src: "/ninjaLogo.png",
+              alt: "Ninja Code Logo",
+              width: 200,
+              height: 150,
+              label: "Ninja Code",
+            },
+            {
+              href: "teamsignup/homeschoolplus",
+              src: "/ninjaLogo.png",
+              alt: "Homeschool plus Logo",
+              width: 200,
+              height: 150,
+              label: "Homeschool Plus",
+            },
+          ].map((team) => (
+            <div
+              key={team.alt}
+              className="flex flex-col items-center transform hover:scale-110 transition-transform duration-300"
+            >
+              <Link href={team.href}>
+                <Image
+                  src={team.src}
+                  alt={team.alt}
+                  width={team.width}
+                  height={team.height}
+                />
+              </Link>
+              <p className="text-xl font-semibold mt-4 w-40 text-center">
+                {team.label}
+              </p>
+            </div>
+          ))}
         </div>
+      </main>
 
-        {/* Third Image */}
-        <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
-          <Link href="/">
-            <Image
-              src="/dance.png"
-              alt="Dance Logo"
-              width={150}
-              height={150}
-            />
-          </Link>
+      {/* Footer */}
+      <footer className="py-6 bg-blue-800">
+        <div className="container mx-auto text-center text-sm">
+          <p>
+            © 2024 Crossroad Family Center. All rights reserved. Registered
+            501(c)(3) Corporation.
+          </p>
         </div>
-
-        {/* Fourth Image */}
-        <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
-          <Link href="/">
-            <Image
-              src="/gymnastics.png"
-              alt="Gymnastics Logo"
-              width={250}
-              height={150}
-            />
-          </Link>
-        </div>
-        {/* Fifth Image */}
-        <div className="overflow-visible transform hover:scale-110 transition-transform duration-300">
-          <Link href="teamsignup/ninjacode">
-            <Image
-              src="/ninjaLogo.png"
-              alt="Ninja Code Logo"
-              width={200}
-              height={150}
-            />
-          </Link>
-        </div>
-      </div>
-
-
+      </footer>
     </div>
   );
 };
 
-export default teamSignup;
+export default TeamSignup;

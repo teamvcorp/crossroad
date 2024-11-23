@@ -29,7 +29,7 @@ export default function ParentForm() {
     cell: "",
     email: "",
     age: "",
-    option: "option2",
+    option: "option3",
   });
 
   const [children, setChildren] = useState<Child[]>([

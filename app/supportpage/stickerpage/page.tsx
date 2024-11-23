@@ -12,7 +12,7 @@ const stripePromise = loadStripe(
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const [selectedPriceId, setSelectedPriceId] = useState({id: '', amount: ''});
+  const [selectedPriceId, setSelectedPriceId] = useState({ id: "", amount: "" });
 
   interface CheckoutSessionParams {
     priceId?: string;
@@ -21,17 +21,15 @@ export default function Home() {
     quantity?: number;
     name?: string;
   }
+
   // Price IDs from Stripe (replace with actual Price IDs)
   const priceOptions = [
     { id: "prod_RDvsdZMKFpO8Gr", amount: "Education" },
     { id: "prod_RDvuzkK2g9Q3dk", amount: "Healthcare" },
     { id: "prod_RDvtiehcgpFAXu", amount: "Housing" },
-
   ];
 
-  const handleCheckout = async (
-    mode: "payment"
-  ): Promise<void> => {
+  const handleCheckout = async (mode: "payment"): Promise<void> => {
     setLoading(true);
     const stripe: Stripe | null = await stripePromise;
 
@@ -39,13 +37,12 @@ export default function Home() {
       mode,
     };
 
-  if (mode === "payment") {
+    if (mode === "payment") {
       sessionParams = {
         ...sessionParams,
         priceId: selectedPriceId?.id,
         amount: 1000,
         name: selectedPriceId?.amount,
-        
       };
     } else {
       alert("Please provide all necessary details for the transaction.");
@@ -72,61 +69,73 @@ export default function Home() {
 
     setLoading(false);
   };
+
   return (
-    <div className="flex flex-col justify-start gap-10 items-center bg-[url('/supportBkgd.jpg')] bg-cover bg-center h-screen pt-[90px]">
-      <div className="flex items-center mt-20">
-        <h1 className='text-xl mr-2'>Why should you donate? CLICK HERE</h1>
+    <div className="flex flex-col items-center justify-center bg-blue-600 min-h-screen text-white pt-[90px]">
+      {/* Call to Action Section */}
+      <div className="flex items-center justify-center mt-8">
+        <h1 className="text-2xl font-bold mr-4">
+          Why should you donate?{" "}
+          <span className="underline">Click here!</span>
+        </h1>
         <Link href="/impactpage">
           <Image
             className="transform hover:scale-110 transition-transform duration-300"
             src="/lightbulb.png"
             width={50}
             height={50}
-            alt="Just an idea"
+            alt="Learn more"
           />
         </Link>
       </div>
-     
-     
-        <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
-          <h1 className="text-3xl font-semibold mb-6 text-center">
-            Your priorty matters, chose education, healthcare, or housing. 
-          </h1>
-          <div className="space-y-4 mb-8">
-            {priceOptions.map((option) => (
-              <label
-                key={option.id}
-                className="text-lg text-gray-700 flex items-center justify-between border-b border-gray-300 py-4 w-full cursor-pointer hover:bg-green-50 hover:border-green-400 transition-all duration-300"
-              >
-                <span>{option.amount}</span>
-                <input
-                  type="radio"
-                  name="price"
-                  value={option.id}
-                  className="form-radio h-5 w-5 text-blue-600 focus:ring-blue-500"
-                  onChange={() => setSelectedPriceId({id: option.id, amount: option.amount})}
-                />
-              </label>
-            ))}
-          </div>
-          <button
-            onClick={() => handleCheckout("payment")}
-            disabled={loading}
-            className={`w-full bg-blue-600 text-white py-3 px-4 rounded-lg text-lg font-medium ${
-              loading
-                ? "bg-blue-300 cursor-not-allowed"
-                : "hover:bg-blue-700 transition duration-300"
-            }`}
-          >
-            {loading ? "Loading..." : "Send My Support!"}
-          </button>
+
+      {/* Donation Form */}
+      <div className="bg-white text-gray-800 shadow-md rounded-lg p-8 mt-10 w-full max-w-md">
+        <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">
+          Your Priority Matters
+        </h1>
+        <p className="text-center text-gray-600 mb-4">
+          Choose to support Education, Healthcare, or Housing.
+        </p>
+        <div className="space-y-4 mb-6">
+          {priceOptions.map((option) => (
+            <label
+              key={option.id}
+              className="flex items-center justify-between p-4 border rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-400 transition-all duration-300"
+            >
+              <span className="text-lg font-medium">{option.amount}</span>
+              <input
+                type="radio"
+                name="price"
+                value={option.id}
+                className="form-radio h-5 w-5 text-blue-600 focus:ring focus:ring-blue-400"
+                onChange={() =>
+                  setSelectedPriceId({ id: option.id, amount: option.amount })
+                }
+              />
+            </label>
+          ))}
         </div>
-      
-    
-     
-     
-        
-      
+        <button
+          onClick={() => handleCheckout("payment")}
+          disabled={loading}
+          className={`w-full py-3 rounded-lg text-lg font-medium ${
+            loading
+              ? "bg-blue-300 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700 text-white transition duration-300"
+          }`}
+        >
+          {loading ? "Loading..." : "Send My Support!"}
+        </button>
+      </div>
+
+      {/* Footer */}
+      <footer className="mt-12 text-center text-sm">
+        <p>
+          © 2024 Crossroad Family Center. All rights reserved. Registered
+          501(c)(3) Corporation.
+        </p>
+      </footer>
     </div>
   );
 }

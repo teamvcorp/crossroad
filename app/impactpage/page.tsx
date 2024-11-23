@@ -12,18 +12,16 @@ interface BlogPost {
 const HomePage = () => {
   const [posts, setPosts] = useState<BlogPost[][]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [showGallery, setShowGallery] = useState<boolean>(false); // State to control ImageGallery visibility
-  const [refreshState, setRefreshState] = useState<boolean>(false); // State to control ImageGallery visibility
+  const [showGallery, setShowGallery] = useState<boolean>(false);
+  const [refreshState, setRefreshState] = useState<boolean>(false);
 
   useEffect(() => {
-    
     const fetchPosts = async () => {
       setLoading(true);
       try {
         const response = await fetch(
           `${window.location.origin}/api/get-blog-posts`
         );
-        console.log(`${window.location.origin}/api/get-blog-posts`);
         const data = await response.json();
         setPosts(data); // Set the posts fetched from the API
       } catch (error) {
@@ -34,119 +32,121 @@ const HomePage = () => {
     };
 
     fetchPosts();
-  }, [refreshState]); // Empty dependency array means this only runs once, on component mount
+  }, [refreshState]);
 
   return (
-    <div className="flex h-screen">
-      {/* Sidebar - Always open */}
-      <aside className="bg-gray-800 text-white w-64 p-5 pt-[90px] fixed h-full">
-        <div className="w-full bg-gray-700 p-4 rounded-lg">
-          <h1 className="text-white text-1xl font-bold mb-4">
-            Member Benefits
-          </h1>
+    <div className="min-h-screen flex flex-col bg-blue-600 text-white">
+      {/* Hero Section */}
+      <section className="relative h-96 bg-gradient-to-r from-blue-700 to-blue-500 flex items-center justify-center">
+        <h1 className="text-5xl font-bold text-center drop-shadow-lg">
+          Welcome to Crossroad Family Center
+        </h1>
+      </section>
 
-          <ul className="list-none m-0 p-0">
-            <li className="text-white p-2 border-b border-gray-600">
-              $5 Day Camps
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Sponsored Training*
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Homeschool Plus !
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Ninja Code
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Free Child Care***
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Advanced Tutoring
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Behavioral Health
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Group Fitness
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Pool Access**
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Crossfit Equipment**
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Indoor Track**
-            </li>
-            <li className="text-white p-2 border-b border-gray-600">
-              Healthy Foods**
-            </li>
-          </ul>
-          <p className="text-white p-2 border-b border-gray-600">
-            *Requires Tryouts
-          </p>
-          <p className="text-white p-2 border-b border-gray-600">
-            **Coming soon
-          </p>
-          <p className="text-white p-2 border-b border-gray-600">
-            ***While Training
-          </p>
+      {/* Member Benefits Section */}
+      <section className="py-12 px-6 bg-white text-gray-800 rounded-t-3xl">
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-8">
+          Member Benefits
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { title: "$5 Day Camps", description: "Affordable day camps for kids and families." },
+            { title: "Sponsored Training*", description: "Specialized training opportunities for members." },
+            { title: "Homeschool Plus!", description: "K-12 tailored program with leadership training." },
+            { title: "Ninja Code", description: "Hands-on coding and mechanics program." },
+            { title: "Free Child Care***", description: "Childcare provided during training." },
+            { title: "Advanced Tutoring", description: "Academic support for all levels." },
+            { title: "Behavioral Health", description: "Mental and emotional well-being programs." },
+            { title: "Group Fitness", description: "Fun and engaging fitness classes." },
+            { title: "Pool Access**", description: "Enjoy the pool for exercise and fun." },
+            { title: "Crossfit Equipment**", description: "Access to advanced fitness equipment." },
+            { title: "Indoor Track**", description: "State-of-the-art indoor running track." },
+            { title: "Healthy Foods**", description: "Nutrition programs and healthy food options." },
+          ].map((benefit) => (
+            <div
+              key={benefit.title}
+              className="bg-gray-50 rounded-lg shadow-lg p-6 text-center hover:scale-105 transform transition duration-300"
+            >
+              <h3 className="text-2xl font-semibold text-blue-600 mb-4">
+                {benefit.title}
+              </h3>
+              <p className="text-lg text-gray-700">{benefit.description}</p>
+            </div>
+          ))}
         </div>
-      </aside>
+        <div className="mt-6 text-center text-sm text-gray-600">
+          <p>* Requires Tryouts</p>
+          <p>** Coming Soon</p>
+          <p>*** While Training</p>
+        </div>
+      </section>
 
-      {/* Main Content shifted right to accommodate sidebar */}
-      <div className="flex-1 flex flex-col pl-64 pt-[90px]">
-        {/* Adjust pl (padding-left) to sidebar's width */}
-        {/* Blog Feed */}
-        <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Blog Section */}
+      <section className="py-12 px-6">
+        <h2 className="text-4xl font-bold text-center mb-8">
+          Blog and Updates
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {loading ? (
-            <p>Loading...</p>
+            <p className="col-span-full text-center">Loading...</p>
           ) : posts.length > 0 ? (
             posts.map((authorPosts, index) => (
               <div
                 key={index}
-                className="border p-4 flex flex-col space-y-4 max-h-[40vh] overflow-y-auto"
+                className="bg-white text-gray-800 rounded-lg shadow-lg p-6"
               >
                 {authorPosts.map((post) => (
-                  <div key={post.id} className="border-b pb-4">
-                    <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-                    <p className="italic text-gray-500">For {post.author}</p>
-                    <p>{post.content}</p>
+                  <div key={post.id} className="mb-4 border-b pb-4">
+                    <h3 className="text-xl font-bold text-blue-600 mb-2">
+                      {post.title}
+                    </h3>
+                    <p className="italic text-gray-500 mb-2">
+                      By {post.author}
+                    </p>
+                    <p className="text-gray-700">{post.content}</p>
                   </div>
                 ))}
               </div>
             ))
           ) : (
-            <>
-              <p>No posts found.</p>
-              <button
-                onClick={() => setRefreshState((prev) => !prev)}
-                className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
-              >
-                Refresh
-              </button>
-            </>
+            <p className="col-span-full text-center">No posts found.</p>
           )}
         </div>
-
-        {/* Conditionally hide the ImageGallery */}
-        <div className={showGallery ? "" : "hidden"}>
-          <ImageGallery />
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setRefreshState((prev) => !prev)}
+            className="px-6 py-3 bg-white text-blue-600 rounded-lg shadow-md hover:bg-blue-50 transition duration-300"
+          >
+            Refresh Posts
+          </button>
         </div>
+      </section>
 
-        <p className="flex justify-center">
-          Let's go Storm lake time to fill this page with your projects!
-        </p>
-
-        {/* Button to toggle ImageGallery visibility */}
+      {/* Image Gallery Section */}
+      <section className="py-12 px-6">
+        <h2 className="text-4xl font-bold text-center mb-8">
+          Explore Our Community
+        </h2>
         <button
           onClick={() => setShowGallery((prev) => !prev)}
-          className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+          className="block mx-auto mb-8 px-6 py-3 bg-white text-blue-600 rounded-lg shadow-md hover:bg-blue-50 transition duration-300"
         >
-          {showGallery ? "Hide" : "Show"} Image Gallery
+          {showGallery ? "Hide Gallery" : "Show Gallery"}
         </button>
-      </div>
+        {showGallery && (
+          <div className="max-w-6xl mx-auto">
+            <ImageGallery />
+          </div>
+        )}
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 bg-blue-800">
+        <p className="text-center text-white text-sm">
+          © 2024 Crossroad Family Center. All rights reserved. Registered
+          501(c)(3) Corporation.
+        </p>
+      </footer>
     </div>
   );
 };
