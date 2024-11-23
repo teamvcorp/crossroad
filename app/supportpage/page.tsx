@@ -17,6 +17,13 @@ export default function Home() {
   const [oneTimeAmount, setOneTimeAmount] = useState("");
   const [selectedPriceId, setSelectedPriceId] = useState("");
 
+  interface CheckoutSessionParams {
+    priceId?: string;
+    amount?: number;
+    mode: string;
+    quantity?: number;
+    name?: string;
+  }
   const priceOptions = [
     { id: "price_1PyKEqFOfT7vP5Js0IuqLgtD", amount: "$25 / year" },
     { id: "price_1PyKIdFOfT7vP5JsOCOjJkuF", amount: "$50 / year" },
@@ -26,11 +33,13 @@ export default function Home() {
     { id: "price_1PyKIdFOfT7vP5JsiBVW1eTs", amount: "$1000 / year" },
   ];
 
-  const handleCheckout = async (mode: "subscription" | "payment") => {
+ const handleCheckout = async (
+    mode: "subscription" | "payment"
+  ): Promise<void> => {
     setLoading(true);
     const stripe: Stripe | null = await stripePromise;
 
-    let sessionParams = {
+    let sessionParams: CheckoutSessionParams = {
       mode,
     };
 
