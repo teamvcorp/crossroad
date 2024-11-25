@@ -151,7 +151,7 @@ const Page = () => {
           filled with strength, creativity, and unity.
         </p>
         <a
-          href="#"
+          href="/teamsignup"
           className="px-8 py-4 bg-yellow-400 text-blue-800 rounded-lg shadow-md hover:bg-yellow-300 transition duration-300 text-xl font-semibold"
         >
           Join Us Today
