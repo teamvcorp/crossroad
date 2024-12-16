@@ -1,94 +1,93 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Header from "./components/header";
+import { toast } from "react-hot-toast";
+import { z } from "zod";
+import router from "next/router";
 
 export default function Home() {
-  const images = [
-    { src: "/image1.webp", alt: "Image 1" },
-    { src: "/image2.webp", alt: "Image 2" },
-    { src: "/image3.webp", alt: "Image 3" },
-    { src: "/image4.webp", alt: "Image 4" },
-    { src: "/coders.webp", alt: "Ninja Code" },
-    { src: "/gymnastics.webp", alt: "Gymnastics" },
-  ];
+  const [email, setEmail] = useState({ email: "" });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const [currentImage, setCurrentImage] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setEmail({
+      ...email,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("/api/newsletter-signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(email),
+      });
+      const data = await response.json();
+      if (data.success) {
+        toast.success("Message sent successfully!");
+        router.push("/");
+      } else {
+        toast.error("Error sending message. Try again");
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const formattedErrors: { [key: string]: string } = {};
+        error.errors.forEach((err) => {
+          formattedErrors[err.path[0] as string] = err.message;
+        });
+        setErrors(formattedErrors);
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-blue-600 text-white">
-      {/* Header */}
-      <Header />
+   
 
-      <main className="flex-1 pt-[95px]">
+      <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative h-96 bg-gradient-to-r from-blue-700 to-blue-500">
-          <div className="relative w-full h-full">
+        <section className="relative h-96">
+          <div className="relative w-1000 h-500">
             <Image
-              src={images[currentImage].src}
-              alt={images[currentImage].alt}
-              layout="fill"
-              className="object-cover"
+              src="/hero.jpg"
+              alt="Hero Image"
+              layout="contain"
+              width='2000'
+              height='1000'
+              className="object-top"
               priority
             />
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <h1 className="text-5xl font-bold text-center drop-shadow-lg">
-                Welcome to Crossroad Family Center
-              </h1>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex items-center bg-blue p-2 rounded-md"
+                >
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    onChange={handleInputChange}
+                    className="px-4 py-2 rounded-md text-black"
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm">{errors.name}</p>
+                  )}
+                  <button
+                    type="submit"
+                    className="px-6 py-2 bg-green hover:offset-2 rounded-md transform transition-transform duration-100 hover:scale-105"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              </div>
             </div>
-          </div>
-        </section>
-
-        {/* Explore Section */}
-        <section className="py-12 px-6">
-          <h2 className="text-4xl font-bold text-center mb-8">
-            Explore Our Community
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                href: "/supportpage",
-                title: "Support Us",
-                bgColor: "bg-green-500 hover:bg-green-600",
-              },
-              {
-                href: "/teamsignup",
-                title: "Join a Team",
-                bgColor: "bg-yellow-500 hover:bg-yellow-600",
-              },
-              {
-                href: "/partnerspage",
-                title: "Partners Page",
-                bgColor: "bg-red-500 hover:bg-red-600",
-              },
-              {
-                href: "/impactpage",
-                title: "Community Impact",
-                bgColor: "bg-blue-500 hover:bg-blue-600",
-              },
-              {
-                href: "/help",
-                title: "Reach Out",
-                bgColor: "bg-teal-500 hover:bg-teal-600",
-              },
-            ].map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                className={`block p-6 text-white text-center rounded-lg shadow-md transition duration-300 ${link.bgColor}`}
-              >
-                {link.title}
-              </Link>
-            ))}
           </div>
         </section>
       </main>

@@ -112,7 +112,7 @@ export default function ContactForm() {
             className="w-full bg-blue-700 text-white font-bold py-2 rounded-lg hover:bg-blue-800 transition"
           >
             Submit
-          </button>
+          </button> 
         </form>
         <div className="mt-8 p-4 bg-blue-100 text-blue-900 rounded-md shadow-inner">
           <h2 className="text-xl font-semibold mb-2">The Von der Becke Academy Corp</h2>

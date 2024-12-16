@@ -190,7 +190,7 @@ export default function ParentForm() {
                 <button
                   type="button"
                   onClick={() => removeChild(index)}
-                  className="mt-2 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+                  className="mt-2 bg-red text-white px-4 py-2 rounded-md hover:bg-red"
                 >
                   Remove Child
                 </button>
@@ -201,14 +201,14 @@ export default function ParentForm() {
           <button
             type="button"
             onClick={addChild}
-            className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600"
+            className="w-full bg-green text-white py-3 rounded-md hover:bg-green"
           >
             Add Another Child
           </button>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700"
+            className="w-full bg-blue text-white py-3 rounded-md hover:bg-blue"
           >
             Submit
           </button>

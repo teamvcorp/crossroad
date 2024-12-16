@@ -4,7 +4,7 @@ import { useState } from "react";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import Link from "next/link";
 import Image from "next/image";
-
+import { IoMdHeart } from "react-icons/io";
 // Initialize Stripe
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
@@ -12,10 +12,6 @@ const stripePromise = loadStripe(
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
-  const [subscriptionOpen, setSubscriptionOpen] = useState(false);
-  const [oneTime, setOneTime] = useState(false);
-  const [oneTimeAmount, setOneTimeAmount] = useState("");
-  const [selectedPriceId, setSelectedPriceId] = useState("");
 
   interface CheckoutSessionParams {
     priceId?: string;
@@ -33,8 +29,10 @@ export default function Home() {
     { id: "price_1PyKIdFOfT7vP5JsiBVW1eTs", amount: "$1000 / year" },
   ];
 
- const handleCheckout = async (
-    mode: "subscription" | "payment"
+  const handleCheckout = async (
+    mode: "subscription" | "payment",
+    oneTimeAmount?: number,
+    selectedPriceId?: string
   ): Promise<void> => {
     setLoading(true);
     const stripe: Stripe | null = await stripePromise;
@@ -50,7 +48,7 @@ export default function Home() {
         quantity: 1,
       };
     } else if (mode === "payment" && oneTimeAmount) {
-      const amountInCents = parseFloat(oneTimeAmount) * 100;
+      const amountInCents = oneTimeAmount * 100;
       sessionParams = {
         ...sessionParams,
         amount: amountInCents,
@@ -83,119 +81,111 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-blue-600 min-h-screen text-white pt-[90px]">
-      {/* Header Section */}
-      <div className="flex items-center mt-8">
-        <h1 className="text-2xl font-bold mr-4">
-          Why should you donate?{" "}
-          <span className="underline">Click here!</span>
-        </h1>
+    <div className="flex flex-col items-center  min-h-screen bg-blue text-black">
+      
+      <div className="flex flex-col justify-content flex-start w-full items-start p-5">
+        <div className="flex flex-row items-center justify-content flex-start w-full p-5 mr-4">
+
+        <h1 className="text-4xl font-bold text-white">Support CRFC</h1>
         <Link href="/impactpage">
           <Image
-            className="transform hover:scale-110 transition-transform duration-300"
+            className="transform hover:scale-110 transition-transform duration-300 ml-3"
             src="/lightbulb.png"
             width={50}
             height={50}
             alt="Learn more"
           />
         </Link>
+        </div>
+            <p className="text-sm text-gray-400 mt-2 px-5">Click the light bulb if you want to local impact.</p>
+            <p></p>
+          
       </div>
 
-      {/* Subscription Section */}
-      <button
-        onClick={() => setSubscriptionOpen((prev) => !prev)}
-        disabled={loading}
-        className={`mt-6 w-1/4 bg-white text-blue-600 py-3 px-4 rounded-lg text-lg font-medium ${
-          loading
-            ? "bg-gray-300 cursor-not-allowed"
-            : "hover:bg-blue-50 transition duration-300"
-        }`}
-      >
-        {subscriptionOpen ? "Close 5-Year Plan" : "Open 5-Year Plan"}
-      </button>
-      {subscriptionOpen && (
-        <div className="bg-white text-gray-800 shadow-md rounded-lg p-8 mt-6 w-full max-w-lg">
-          <h1 className="text-3xl font-semibold mb-6 text-center text-blue-600">
-            Select. Finalize. Share.
-          </h1>
-          <div className="space-y-4 mb-6">
+      <div className="grid grid-cols-3 gap-8">
+        <div className="flex flex-col items-center mt-8">
+          <div className="p-8 mt-6 w-full max-w-lg">
+            <h3 className="text-center text-xl font-semibold mb-4 text-white">
+              One-Time Support
+            </h3>
+            <div className="grid grid-cols-2 gap-4">
+              {[20, 40, 60, 80, 100, 120].map((amount) => (
+                <button
+                  key={amount}
+                  onClick={() => handleCheckout("payment", amount)}
+                  disabled={loading}
+                  className={`w-full py-3 rounded-lg text-lg font-medium ${
+                    loading
+                      ? "bg-blue cursor-not-allowed"
+                      : "bg-darkBlue hover:bg-blue-700 hover:translate-x-1 hover:translate-y-1 text-white transition duration-300"
+                  }`}
+                >
+                  {loading ? "Loading..." : `$${amount}`}
+                </button>
+              ))}
+            </div>
+            <button
+              className="flex items-center justify-center w-full py-3 rounded-lg text-lg font-medium bg-red hover:bg-red-700 text-white transition duration-300 mt-4"
+              disabled
+            >
+              <IoMdHeart className="mr-2" />
+              DONATE NOW
+            </button>
+          </div>
+        </div>
+        <div className="flex flex-col items-center mt-8">
+
+        <div className="p-8 mt-6 w-full max-w-lg">
+          <h3 className="text-center text-xl font-semibold mb-4 text-white">
+            Subscription Support
+          </h3>
+          <div className="grid grid-cols-2 gap-4">
             {priceOptions.map((option) => (
-              <label
+              <button
                 key={option.id}
-                className="flex items-center justify-between p-4 border rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-400 transition-all duration-300"
+                onClick={() => {
+                  handleCheckout("subscription", undefined, option.id);
+                }}
+                disabled={loading}
+                className={`w-full py-3 rounded-lg text-lg font-medium px-2 ${
+                  loading
+                    ? "bg-blue cursor-not-allowed"
+                    : "bg-darkBlue hover:bg-blue-700 hover:translate-x-1 hover:translate-y-1 text-white transition duration-300"
+                }`}
               >
-                <span className="text-lg font-medium">{option.amount}</span>
-                <input
-                  type="radio"
-                  name="price"
-                  value={option.id}
-                  className="form-radio h-5 w-5 text-blue-600 focus:ring focus:ring-blue-400"
-                  onChange={() => setSelectedPriceId(option.id)}
-                />
-              </label>
+                {loading ? "Loading..." : option.amount}
+              </button>
             ))}
           </div>
           <button
-            onClick={() => handleCheckout("subscription")}
-            disabled={loading}
-            className={`w-full py-3 rounded-lg text-lg font-medium ${
-              loading
-                ? "bg-blue-300 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700 text-white transition duration-300"
-            }`}
+            className="flex items-center justify-center w-full py-3 rounded-lg text-lg font-medium bg-red hover:bg-red-700 text-white transition duration-300 mt-4"
+            disabled
           >
-            {loading ? "Loading..." : "Send My Support!"}
+            <IoMdHeart className="mr-2" />
+            SUBSCRIBE
           </button>
         </div>
-      )}
-
-      {/* One-Time Support Section */}
-      <button
-        onClick={() => setOneTime((prev) => !prev)}
-        disabled={loading}
-        className={`mt-4 w-1/4 bg-white text-blue-600 py-3 px-4 rounded-lg text-lg font-medium ${
-          loading
-            ? "bg-gray-300 cursor-not-allowed"
-            : "hover:bg-blue-50 transition duration-300"
-        }`}
-      >
-        {oneTime ? "Close One-Time Support" : "Open One-Time Support"}
-      </button>
-      {oneTime && (
-        <div className="bg-white text-gray-800 shadow-md rounded-lg p-8 mt-6 w-full max-w-lg">
-          <h1 className="text-3xl font-semibold mb-6 text-center text-blue-600">
-            Enter Your Support Amount
-          </h1>
-          <div className="space-y-4 mb-6">
-            <input
-              type="number"
-              placeholder="Enter Amount (USD)"
-              value={oneTimeAmount}
-              onChange={(e) => setOneTimeAmount(e.target.value)}
-              className="p-3 border border-gray-300 rounded-lg w-full text-lg"
-            />
-          </div>
-          <button
-            onClick={() => handleCheckout("payment")}
-            disabled={loading}
-            className={`w-full py-3 rounded-lg text-lg font-medium ${
-              loading
-                ? "bg-blue-300 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700 text-white transition duration-300"
-            }`}
-          >
-            {loading ? "Loading..." : "Send My Support!"}
-          </button>
         </div>
-      )}
+        <div className="flex justify-center mt-8 w-full">
+          <Image
+            src={'/donateBox.svg'}
+            alt="donate box"
+            layout="responsive"
+            height={1000}
+            width={800}
+            className="transform hover:scale-105 transition-transform duration-300"
+          />
+        </div>
 
-      {/* Footer */}
-      <footer className="mt-12 text-center text-sm text-white">
-        <p>
-          © 2024 Crossroad Family Center. All rights reserved. Registered
-          501(c)(3) Corporation.
-        </p>
-      </footer>
+        {/* Footer */}
+        <footer className="mt-12 text-center text-sm text-white col-span-3">
+          <p>
+            © 2024 Crossroad Family Center. All rights reserved. Registered
+            501(c)(3) Corporation.
+          </p>
+        </footer>
+      </div>
+      
     </div>
   );
 }
