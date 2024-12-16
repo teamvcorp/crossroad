@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Header from "./components/header";
 import { toast } from "react-hot-toast";
 import { z } from "zod";
 import router from "next/router";
