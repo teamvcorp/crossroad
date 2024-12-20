@@ -33,9 +33,15 @@ const Header = () => {
           className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 transform transition-transform duration-300 hover:scale-110"
         />
         </Link>
+        <div className="flex flex-col">
+
         <h1 className="hidden sm:block text-4xl text-blue font-bold ml-4">
         Crossroad Family Center
         </h1>
+        <p className="hidden sm:block text-xl text-gray-600 italic ml-4">
+          United in purpose, building a stronger you, a better us.
+        </p>
+        </div>
       </div>
 
       {/* Desktop Navigation */}

@@ -4,7 +4,7 @@ const boardMembers = [
     {
         name: 'Robert Von Der Becke',
         title: 'President',
-        picture: '/robert.png',
+        picture: '/robertv.jpg',
         bio: 'Robert is a seasoned professional with over 20 years of experience in the industry.'
     },
     {
@@ -16,13 +16,13 @@ const boardMembers = [
     {
         name: 'Kayla Reetz',
         title: 'Director & Goverance Chair',
-        picture: '/images/jane_smith.jpg',
+        picture: '/kayla.png',
         bio: 'Kayla is....'
     },
     {
         name: 'Melissa Pearson',
         title: 'Fundraising Chair',
-        picture: '/images/jane_smith.jpg',
+        picture: '/melissa.png',
         bio: 'Melissa is....'
     },
     // Add more board members as needed

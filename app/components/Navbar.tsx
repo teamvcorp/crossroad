@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
               <Link href="/aboutus/mission" className="block px-4 py-2">Mission</Link>
               </li>
               <li className="hover:bg-darkBlue hover:text-white">
-              <Link href="/aboutus/vision" className="block px-4 py-2">Vision</Link>
+              <Link href="/aboutus/mission#vision" className="block px-4 py-2">Vision</Link>
               </li>
               <li className="hover:bg-darkBlue hover:text-white">
               <Link href="/aboutus/board" className="block px-4 py-2">Board Members</Link>
