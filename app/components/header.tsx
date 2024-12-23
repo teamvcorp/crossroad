@@ -63,7 +63,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-      <div className="bg-blue-700 bg-opacity-95 md:hidden">
+      <div className="bg-blue bg-opacity-95 md:hidden">
         <ul className="flex flex-col items-center space-y-4 py-4">
         <li>
           <Link

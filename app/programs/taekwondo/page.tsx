@@ -15,10 +15,10 @@ const TkdTeams = () => {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100">
       <h1 className="py-6 text-4xl uppercase tracking-wider">Taekwondo</h1>
-      <div className="">
+      <div className="hidden sm:block">
         <ImageGallery />
       </div>
-      <div className="text-center w-[1500px] mt-12 p-6 bg-white shadow-md rounded-lg mb-8">
+      <div className="text-center mt-12 p-6 bg-white shadow-md rounded-lg mb-8">
         Our school offers Taekwondo for all ages, focusing on discipline,
         leadership, and self-mastery through Taekwondo principles. Our
         comprehensive program builds confidence, practical skills, and the
