@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const MissionPage: React.FC = () => {
 return (
-    <div className="w-4/5 mx-auto">
+    <div className="w-4/5 mx-auto pt-5">
         <div className="p-6 bg-white rounded-lg shadow-md">
             <h1 id="mission" className="text-2xl font-bold mb-4">
                 Our Mission
@@ -20,8 +20,8 @@ return (
         </div>
         <div className="p-6 bg-white rounded-lg shadow-md mt-6 flex items-center">
             <Image
-                src="/public/vision.jpg"
-                alt="Vision"
+                src="/vision.png"
+                alt="Vision ai generate image"
                 width={400}
                 height={200}
                 className="w-1/2 h-64 object-cover rounded-lg mb-4"
@@ -43,8 +43,8 @@ return (
         </div>
         <div className="p-6 bg-white rounded-lg shadow-md mt-6 flex items-center">
             <Image
-                src="/public/education.jpg"
-                alt="Education"
+                src="/kidcomp.jpg"
+                alt="Education ai generated image"
                 width={400}
                 height={200}
                 className="w-1/2 h-64 object-cover rounded-lg mb-4"
@@ -74,7 +74,7 @@ return (
         </div>
         <div className="p-6 bg-white rounded-lg shadow-md mt-6 flex items-center">
             <Image
-                src="/public/housing.jpg"
+                src="/home.jpg"
                 alt="Housing"
                 width={400}
                 height={200}
@@ -102,7 +102,7 @@ return (
         </div>
         <div className="p-6 bg-white rounded-lg shadow-md mt-6 flex items-center">
             <Image
-                src="/public/health.jpg"
+                src="/health.jpg"
                 alt="Health"
                 width={400}
                 height={200}

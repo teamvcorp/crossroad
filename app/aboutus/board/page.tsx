@@ -28,7 +28,7 @@ const boardMembers = [
     // Add more board members as needed
 ];
 
-const AboutUsPage = () => {
+const AboutUsPage = async () => {
 
     return (
         <div className="pt-6 min-h-screen bg-gray-100">
