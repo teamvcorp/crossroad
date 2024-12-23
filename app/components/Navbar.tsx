@@ -64,22 +64,22 @@ const Navbar: React.FC = () => {
           {activeDropdown === "programs" && (
             <ul className="absolute bg-white text-black mt-2 shadow-lg rounded w-48">
                 <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/sports" className="block px-4 py-2">Homeschool +</Link>
+                <Link href="/programs/homeschool" className="block px-4 py-2">Homeschool +</Link>
                 </li>
                 <li className="hover:bg-darkBlue hover:text-white">
                 <Link href="/programs/taekwondo" className="block px-4 py-2">Taekwondo</Link>
                 </li>
                 <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/education" className="block px-4 py-2">Yotae</Link>
+                <Link href="/programs/yotae" className="block px-4 py-2">Yotae</Link>
                 </li>
                 <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/education" className="block px-4 py-2">Yoga</Link>
+                <Link href="/programs/yoga" className="block px-4 py-2">Yoga</Link>
                 </li>
                 <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/education" className="block px-4 py-2">AfterSchool</Link>
+                <Link href="/programs/afterschool" className="block px-4 py-2">AfterSchool</Link>
                 </li>
                 <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/education" className="block px-4 py-2">Day Camps</Link>
+                <Link href="/programs/camps" className="block px-4 py-2">Day Camps</Link>
                 </li>
             </ul>
           )}
