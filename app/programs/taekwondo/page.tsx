@@ -13,7 +13,7 @@ const TkdTeams = () => {
     router.push("/teamsignup/taekwondo");
   };
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center bg-gray-100 mb-10">
       <h1 className="py-6 text-4xl uppercase tracking-wider">Taekwondo</h1>
       <div className="hidden sm:block">
         <ImageGallery />

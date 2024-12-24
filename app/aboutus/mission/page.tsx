@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const MissionPage: React.FC = () => {
 return (
-    <div className="w-4/5 mx-auto pt-5">
+    <div className="w-4/5 mx-auto pt-5 mb-20">
         <div className="p-6 bg-white rounded-lg shadow-md">
             <h1 id="mission" className="text-2xl font-bold mb-4">
                 Our Mission

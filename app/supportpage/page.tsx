@@ -97,91 +97,91 @@ export default function Home() {
           />
         </Link>
         </div>
-            <p className="text-sm text-gray-400 mt-2 px-5">Click the light bulb if you want to local impact.</p>
+            <p className="text-sm text-white mt-2 px-5">Click the lightbulb if you want to see local impact.</p>
             <p></p>
           
       </div>
 
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         <div className="flex flex-col items-center mt-8">
           <div className="p-8 mt-6 w-full max-w-lg">
-            <h3 className="text-center text-xl font-semibold mb-4 text-white">
-              One-Time Support
-            </h3>
-            <div className="grid grid-cols-2 gap-4">
-              {[20, 40, 60, 80, 100, 120].map((amount) => (
-                <button
-                  key={amount}
-                  onClick={() => handleCheckout("payment", amount)}
-                  disabled={loading}
-                  className={`w-full py-3 rounded-lg text-lg font-medium ${
-                    loading
-                      ? "bg-blue cursor-not-allowed"
-                      : "bg-darkBlue hover:bg-blue-700 hover:translate-x-1 hover:translate-y-1 text-white transition duration-300"
-                  }`}
-                >
-                  {loading ? "Loading..." : `$${amount}`}
-                </button>
-              ))}
-            </div>
-            <button
-              className="flex items-center justify-center w-full py-3 rounded-lg text-lg font-medium bg-red hover:bg-red-700 text-white transition duration-300 mt-4"
-              disabled
-            >
-              <IoMdHeart className="mr-2" />
-              DONATE NOW
-            </button>
+        <h3 className="text-center text-xl font-semibold mb-4 text-white">
+          One-Time Support
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[20, 40, 60, 80, 100, 120].map((amount) => (
+          <button
+            key={amount}
+            onClick={() => handleCheckout("payment", amount)}
+            disabled={loading}
+            className={`w-full py-3 rounded-lg text-lg font-medium ${
+            loading
+          ? "bg-blue cursor-not-allowed"
+          : "bg-darkBlue hover:bg-blue-700 hover:translate-x-1 hover:translate-y-1 text-white transition duration-300"
+            }`}
+          >
+            {loading ? "Loading..." : `$${amount}`}
+          </button>
+          ))}
+        </div>
+        <button
+          className="flex items-center justify-center w-full py-3 rounded-lg text-lg font-medium bg-red hover:bg-red-700 text-white transition duration-300 mt-4"
+          disabled
+        >
+          <IoMdHeart className="mr-2" />
+          DONATE NOW
+        </button>
           </div>
         </div>
         <div className="flex flex-col items-center mt-8">
 
         <div className="p-8 mt-6 w-full max-w-lg">
           <h3 className="text-center text-xl font-semibold mb-4 text-white">
-            Subscription Support
+        Subscription Support
           </h3>
-          <div className="grid grid-cols-2 gap-4">
-            {priceOptions.map((option) => (
-              <button
-                key={option.id}
-                onClick={() => {
-                  handleCheckout("subscription", undefined, option.id);
-                }}
-                disabled={loading}
-                className={`w-full py-3 rounded-lg text-lg font-medium px-2 ${
-                  loading
-                    ? "bg-blue cursor-not-allowed"
-                    : "bg-darkBlue hover:bg-blue-700 hover:translate-x-1 hover:translate-y-1 text-white transition duration-300"
-                }`}
-              >
-                {loading ? "Loading..." : option.amount}
-              </button>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {priceOptions.map((option) => (
+          <button
+            key={option.id}
+            onClick={() => {
+          handleCheckout("subscription", undefined, option.id);
+            }}
+            disabled={loading}
+            className={`w-full py-3 rounded-lg text-lg font-medium px-2 ${
+          loading
+            ? "bg-blue cursor-not-allowed"
+            : "bg-darkBlue hover:bg-blue-700 hover:translate-x-1 hover:translate-y-1 text-white transition duration-300"
+            }`}
+          >
+            {loading ? "Loading..." : option.amount}
+          </button>
+        ))}
           </div>
           <button
-            className="flex items-center justify-center w-full py-3 rounded-lg text-lg font-medium bg-red hover:bg-red-700 text-white transition duration-300 mt-4"
-            disabled
+        className="flex items-center justify-center w-full py-3 rounded-lg text-lg font-medium bg-red hover:bg-red-700 text-white transition duration-300 mt-4"
+        disabled
           >
-            <IoMdHeart className="mr-2" />
-            SUBSCRIBE
+        <IoMdHeart className="mr-2" />
+        SUBSCRIBE
           </button>
         </div>
         </div>
-        <div className="flex justify-center mt-8 w-full">
+        <div className="justify-center mt-8 w-full sm:flex hidden">
           <Image
-            src={'/donateBox.svg'}
-            alt="donate box"
-            layout="responsive"
-            height={1000}
-            width={800}
-            className="transform hover:scale-105 transition-transform duration-300"
+        src={'/donateBox.svg'}
+        alt="donate box"
+        layout="responsive"
+        height={1000}
+        width={800}
+        className="transform hover:scale-105 transition-transform duration-300"
           />
         </div>
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-sm text-white col-span-3">
+        <footer className="mt-12 text-center text-sm text-white col-span-1 sm:col-span-2">
           <p>
-            © 2024 Crossroad Family Center. All rights reserved. Registered
-            501(c)(3) Corporation.
+        © 2024 Crossroad Family Center. All rights reserved. Registered
+        501(c)(3) Corporation.
           </p>
         </footer>
       </div>
