@@ -33,8 +33,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-gray-100 text-gray-800`}
       >
         <Header />
-        {children}
+          {children}
+        <div className="hidden md:block">
         <Footer />
+        </div>
         <Toaster position="top-left" reverseOrder={false} />
       </body>
     </html>

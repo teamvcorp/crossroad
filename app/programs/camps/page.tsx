@@ -2,7 +2,7 @@ import React from 'react';
 import AdobeForm from '../../components/AdobeForm';
 const CampsPage: React.FC = () => {
     return (
-        <div className="container mx-auto p-4 flex flex-col items-start gap-6 ">
+        <div className="container mx-auto p-4 flex flex-col items-start gap-6 pb-5">
             <h1 className="text-3xl font-bold mb-4">Reliable, Safe, and Development-Focused Day Camps</h1>
             <p className="max-w-2xl">
             Our day camps provide parents with a dependable solution for last-minute schedule changes, whether it's a snow day or an unexpected emergency. With a focus on safety, education, and your child’s growth, our program offers a trusted environment where children can thrive.
