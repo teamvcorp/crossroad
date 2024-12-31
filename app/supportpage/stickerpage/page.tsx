@@ -72,19 +72,12 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-blue-600 min-h-screen text-white">
+    <div className="flex flex-col items-center bg-blue text-white">
       {/* Hero Section */}
       <div className="relative w-full">
-        <Image
-          src="/api/myfiles/IMG_0123.jpg"
-          alt="Voices for Change"
-          layout="responsive"
-          width={1500}
-          height={500}
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-blue-700 bg-opacity-50 flex flex-col items-center justify-center">
-          <h1 className="text-5xl font-bold text-white text-center">
+       
+        <div className="inset-0 bg-blue-700 bg-opacity-50 flex flex-col items-center justify-center">
+          <h1 className="text-5xl font-bold text-white text-center pt-4">
             Voices for Change
           </h1>
           <p className="text-xl text-gray-200 mt-4 text-center max-w-2xl">
@@ -126,8 +119,8 @@ export default function Home() {
           disabled={loading}
           className={`w-full py-3 rounded-lg text-lg font-medium ${
             loading
-              ? 'bg-blue-300 cursor-not-allowed'
-              : 'bg-blue-600 hover:bg-blue-700 text-white transition duration-300'
+              ? 'bg-blue cursor-not-allowed'
+              : 'bg-blue hover:bg-blue text-white transition duration-300'
           }`}
         >
           {loading ? 'Processing...' : 'Donate Now'}

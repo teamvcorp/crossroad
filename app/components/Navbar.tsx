@@ -132,6 +132,11 @@ const Navbar: React.FC = () => {
           </button>
           {activeDropdown === "getInvolved" && (
             <ul className="bg-white text-black mt-2 shadow-lg rounded w-42">
+              {/* <li className="hover:bg-darkBlue hover:text-white">
+                <Link href="/registration" className="block px-4 py-2">
+                  Register
+                </Link>
+              </li> */}
               <li className="hover:bg-darkBlue hover:text-white">
                 <Link href="/volunteer" className="block px-4 py-2">
                   Volunteer
