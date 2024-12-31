@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
-import Image from 'next/image';
 
 // Initialize Stripe
 const stripePromise = loadStripe(
