@@ -189,7 +189,7 @@ export default function Home() {
           {/* Toggle Button for Collapsing Form */}
           <button
             onClick={() => setIsFormOpen(!isFormOpen)}
-            className="mb-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 w-full"
+            className="mb-4 px-4 py-2 bg-blue text-white rounded-md hover:bg-blue w-full"
           >
             {isFormOpen ? "Hide Form" : "Send a note to team!"}
           </button>
@@ -253,7 +253,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-4 w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                className="mt-4 w-full py-2 px-4 bg-blue text-white rounded-md hover:bg-blue"
               >
                 {loading ? "Adding..." : "Send"}
               </button>

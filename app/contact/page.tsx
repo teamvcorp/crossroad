@@ -76,7 +76,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Your Name"
-              className="w-full px-4 py-2 border border-blue rounded-md focus:outline-none focus:ring-2 focus:ring-blue"
+              className="w-full px-4 py-2 border text-black border-blue rounded-md focus:outline-none focus:ring-2 focus:ring-blue"
               required
             />
             {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
@@ -89,7 +89,7 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleInputChange}
               placeholder="Your Phone Number"
-              className="w-full px-4 py-2 border border-blue rounded-md focus:outline-none focus:ring-2 focus:ring-blue"
+              className="w-full text-black px-4 py-2 border border-blue rounded-md focus:outline-none focus:ring-2 focus:ring-blue"
               required
             />
             {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
@@ -101,7 +101,7 @@ export default function ContactForm() {
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Your Message"
-              className="w-full px-4 py-2 border border-blue rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border text-black border-blue rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               rows={4}
               required
             />
