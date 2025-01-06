@@ -91,15 +91,6 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-blue-800 py-6">
-        <div className="container mx-auto text-center text-sm">
-          <p>
-            © 2024 Crossroad Family Center. All rights reserved. Registered
-            501(c)(3) Corporation.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

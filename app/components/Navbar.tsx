@@ -80,46 +80,15 @@ const Navbar: React.FC = () => {
 
         {/* Programs */}
         <li className="relative">
-          <button
-            className="text-white text-lg flex items-center gap-2 hover:text-yellow-400 transition-colors duration-300 w-full md:w-auto pr-8"
-            onClick={() => handleDropdown("programs")}
+        <li>
+          <Link
+            href="/programs"
+            className="text-white text-lg hover:text-yellow-400 transition-colors duration-300 flex pr-8"
           >
-            Programs <IoIosArrowDown />
-          </button>
-          {activeDropdown === "programs" && (
-            <ul className="bg-white text-black mt-2 shadow-lg rounded w-42 ">
-              <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/programs/homeschool" className="block px-4 py-2">
-                  Homeschool +
-                </Link>
-              </li>
-              <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/programs/taekwondo" className="block px-4 py-2">
-                  Taekwondo
-                </Link>
-              </li>
-              <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/programs/yotae" className="block px-4 py-2">
-                  Yotae
-                </Link>
-              </li>
-              <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/programs/yoga" className="block px-4 py-2">
-                  Yoga
-                </Link>
-              </li>
-              <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/programs/afterschool" className="block px-4 py-2">
-                  AfterSchool
-                </Link>
-              </li>
-              <li className="hover:bg-darkBlue hover:text-white">
-                <Link href="/programs/camps" className="block px-4 py-2">
-                  Day Camps
-                </Link>
-              </li>
-            </ul>
-          )}
+            Programs
+          </Link>
+        </li>
+        
         </li>
 
         {/* Get Involved */}
