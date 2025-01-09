@@ -21,7 +21,7 @@ const boardMembers = [
     },
     {
         name: 'Melissa Pearson',
-        title: 'Fundraising Chair',
+        title: 'Marketing and Communications Chair',
         picture: '/melissa.png',
         bio: 'Melissa is....'
     },

@@ -1,8 +1,9 @@
 'use client';
-
+import { useRouter } from 'next/router';
 import { useState } from "react";
-
+import { toast } from "react-hot-toast";
 const HelpRequestForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -38,10 +39,10 @@ const HelpRequestForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Form submission failed");
+        toast.error("Form submission failed");
       }
 
-      console.log("Form submitted successfully");
+      toast.success("Form submitted successfully");
       setFormData({
         firstName: "",
         lastName: "",
@@ -57,6 +58,9 @@ const HelpRequestForm = () => {
     } catch (error) {
       console.error("There was an error submitting the form:", error);
     }
+  
+
+    router.push('/');
   };
 
   return (
@@ -151,7 +155,7 @@ const HelpRequestForm = () => {
             value={formData.description}
             onChange={handleChange}
             placeholder="Brief Description of Help Needed"
-            className="w-full p-3 border border-gray-300 rounded-lg"
+            className="w-full p-3 border border-gray-300 rounded-lg text-black"
             rows={4}
             required
           />
@@ -163,7 +167,7 @@ const HelpRequestForm = () => {
               name="bestTime"
               value={formData.bestTime}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg text-black"
             >
               <option value="morning">Morning</option>
               <option value="afternoon">Afternoon</option>
@@ -172,7 +176,7 @@ const HelpRequestForm = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-700 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition"
+            className="w-full bg-blue text-white py-3 rounded-lg font-bold hover:bg-blue transition"
           >
             Submit
           </button>

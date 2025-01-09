@@ -138,6 +138,7 @@ const products = [
 export default function Page() {
   const [open, setOpen] = useState(false);
   const [activeProduct, setActiveProduct] = useState(products[0]);
+  
   const [activeNavigation, setActiveNavigation] = useState([
     {
       name: "Taekwondo",

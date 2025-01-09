@@ -81,7 +81,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center  min-h-screen bg-blue text-black">
+    <div className="flex flex-col items-center bg-blue text-black">
       
       <div className="flex flex-col justify-content flex-start w-full items-start p-5">
         <div className="flex flex-row items-center justify-content flex-start w-full p-5 mr-4">
@@ -89,7 +89,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-white">Support CRFC</h1>
         <Link href="/impactpage">
           <Image
-            className="transform hover:scale-110 transition-transform duration-300 ml-3"
+            className=" ml-3"
             src="/lightbulb.png"
             width={50}
             height={50}
@@ -102,8 +102,8 @@ export default function Home() {
           
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <div className="flex flex-col items-center mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="flex flex-col items-center mt-4">
           <div className="p-8 mt-6 w-full max-w-lg">
         <h3 className="text-center text-xl font-semibold mb-4 text-white">
           One-Time Support
@@ -133,7 +133,7 @@ export default function Home() {
         </button>
           </div>
         </div>
-        <div className="flex flex-col items-center mt-8">
+        <div className="flex flex-col items-center mt-4">
 
         <div className="p-8 mt-6 w-full max-w-lg">
           <h3 className="text-center text-xl font-semibold mb-4 text-white">
@@ -177,13 +177,8 @@ export default function Home() {
           />
         </div>
 
-        {/* Footer */}
-        <footer className="mt-12 text-center text-sm text-white col-span-1 sm:col-span-2">
-          <p>
-        © 2024 Crossroad Family Center. All rights reserved. Registered
-        501(c)(3) Corporation.
-          </p>
-        </footer>
+      
+
       </div>
       
     </div>
