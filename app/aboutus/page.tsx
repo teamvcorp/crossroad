@@ -3,12 +3,6 @@ import Model from ".././components/model";
 import { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import {
-  CheckIcon,
-  QuestionMarkCircleIcon,
-  StarIcon,
-} from "@heroicons/react/20/solid";
-import {
-  IdentificationIcon,
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
