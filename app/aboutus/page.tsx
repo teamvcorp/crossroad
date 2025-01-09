@@ -1,5 +1,4 @@
 "use client";
-import Model from ".././components/model";
 import { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import {
@@ -132,7 +131,6 @@ const products = [
 ];
 
 export default function AboutUsPage() {
-  const [open, setOpen] = useState(false);
   const [activeProduct, setActiveProduct] = useState(products[0]);
   const [activeNavigation, setActiveNavigation] = useState([
     {
@@ -176,11 +174,7 @@ export default function AboutUsPage() {
 
   return (
     <>
-      {open && (
-        <Model open={open} setOpen={setOpen}>
-          <p className="text-sm text-gray-500">{activeProduct.more}</p>
-        </Model>
-      )}
+    
       <div className="min-h-full">
         <Disclosure as="nav" className="border-b border-gray-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -248,12 +242,11 @@ export default function AboutUsPage() {
                   }}
                   href={item.href}
                   aria-current={item.current ? "page" : undefined}
-                  className={classNames(
+                  className={`block border-l-4 py-2 pl-3 pr-4 text-base font-medium ${
                     item.current
                       ? "border-blue bg-blue text-indigo-700"
-                      : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800",
-                    "block border-l-4 py-2 pl-3 pr-4 text-base font-medium"
-                  )}
+                      : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
+                  }`}
                 >
                   {item.name}
                 </Disclosure.Button>
