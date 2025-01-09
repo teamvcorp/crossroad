@@ -9,9 +9,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+
 
 const products = [
   {
@@ -194,21 +192,20 @@ export default function AboutUsPage() {
                       key={item.name}
                       href={item.href}
                       onClick={() => {
-                        setActiveProduct(products[index]);
-                        setActiveNavigation((prev) =>
-                          prev.map((navItem, navIndex) => ({
-                            ...navItem,
-                            current: navIndex === index,
-                          }))
-                        );
+                      setActiveProduct(products[index]);
+                      setActiveNavigation((prev) =>
+                        prev.map((navItem, navIndex) => ({
+                        ...navItem,
+                        current: navIndex === index,
+                        }))
+                      );
                       }}
                       aria-current={item.current ? "page" : undefined}
-                      className={classNames(
-                        item.current
-                          ? "border-blue text-gray-900"
-                          : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
-                        "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
-                      )}
+                      className={`inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium ${
+                      item.current
+                        ? "border-blue text-gray-900"
+                        : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                      }`}
                     >
                       {item.name}
                     </Link>
