@@ -1,14 +1,9 @@
 "use client";
 import { useState } from "react";
 import { Disclosure } from "@headlessui/react";
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-
-
 
 const products = [
   {
@@ -20,15 +15,14 @@ const products = [
                 step toward personal growth, community connection, and lasting change.
                 Together, we build a stronger, healthier, and more unified community
                 for generations to come.`,
-  
+
     images: "/images/tkd.jpeg",
     features: ["Self-defense", "Physical fitness", "Discipline"],
     price: "$50-$150",
   },
   {
     name: "Vision: United in the Fight for Change",
-    description:
-      `At Crossroad, we are fully aware of the immense challenges our world
+    description: `At Crossroad, we are fully aware of the immense challenges our world
                     faces and the obstacles that must be overcome to achieve our mission.
                     Yet, we believe these realities can be conquered through unity and a
                     shared commitment to progress. Guided by our slogan, "Fight for
@@ -41,8 +35,7 @@ const products = [
   },
   {
     name: "Education: A Strong start in life",
-    description:
-      `At Crossroad, we are reimagining education with an initiative designed
+    description: `At Crossroad, we are reimagining education with an initiative designed
                     to evolve alongside our students’ needs. Beginning with our Home
                     School Plus program, we go beyond standardized testing to embrace a
                     future of limitless possibilities. Our focus on critical thinking,
@@ -63,8 +56,7 @@ const products = [
   },
   {
     name: "Effortonomy: Empowering Lives Through Secure Housing",
-    description:
-      `At the heart of our housing initiative is Effortonomy, a proprietary
+    description: `At the heart of our housing initiative is Effortonomy, a proprietary
                     concept that redefines how support is provided. This program ensures
                     housing, utilities, and meals for individuals and families, offering
                     the stability needed to focus on finding their true passions and
@@ -86,8 +78,7 @@ const products = [
   },
   {
     name: "Health",
-    description:
-      `Health and well-being are at the core of our mission. We provide
+    description: `Health and well-being are at the core of our mission. We provide
                     comprehensive health services that address the physical, mental, and
                     emotional needs of our community members. Our health initiatives
                     include primary care, mental health services, and wellness programs
@@ -101,29 +92,40 @@ const products = [
     description: "Acurate as of January 2025",
     boardMembers: [
       {
-          name: 'Robert Von Der Becke',
-          title: 'President',
-          picture: '/robert.png',
-          bio: 'Robert is a seasoned professional with over 20 years of experience in the industry.'
+        name: "Robert Von Der Becke",
+        title: "President",
+        picture: "/robert.png",
+        bio: `With over 20 years of leadership experience, Robert Von Der Becke is a visionary in the field of psychology and behavioral science. Holding a Master’s degree in Psychology with an emphasis in Applied Behavior, Robert is currently pursuing his doctorate in Psychology and Behavioral Neuroscience, further solidifying his expertise in understanding and influencing human behavior. As the founder and head of both the VA School and Crossroads Academy, Robert has dedicated his career to pioneering proactive approaches to behavioral modification. His innovative methodologies center on pivotal behavior strategies, leveraging the power of sports and play to promote meaningful, lasting change. These evidence-based practices have not only transformed individual lives but have also set a new standard for integrating behavioral science into education and community development. A passionate advocate for growth through action, Robert continues to inspire and lead initiatives that bridge academic research with real-world application, fostering environments where individuals and communities can thrive.`,
+        expanded: false,
       },
       {
-          name: 'Ryann Von Der Becke',
-          title: 'VP & Secretary',
-          picture: '/ryann.png',
-          bio: 'Ryann is a dedicated leader with a passion for innovation and excellence.'
+        name: "Ryann Von Der Becke",
+        title: "VP & Secretary",
+        picture: "/ryann.png",
+        bio: `
+
+For over 20 years, Ryann Von Der Becke has been the backbone of the VA School, ensuring its operations run smoothly and its mission thrives. With exceptional talents in graphic design, office management, and organizational strategy, Ryann seamlessly manages the intricate details that keep the school functioning at its best.
+
+Ryann is dedicated to bringing the core values of the VA School—self-control, self-awareness, and strength of character—to life. Her ability to align daily operations with these principles has been instrumental in achieving the school’s objectives. Whether through streamlining processes or creating visually compelling materials that reflect the school’s mission, Ryann’s contributions are invaluable.
+
+Indispensable in handling all operational requirements, Ryann’s unwavering commitment ensures that the VA School continues to be a beacon of growth and excellence for its students and community.`,
+        expanded: false,
       },
       {
-          name: 'Kayla Reetz',
-          title: 'Director & Goverance Chair',
-          picture: '/kayla.png',
-          bio: 'Kayla is....'
+        name: "Kayla Reetz",
+        title: "Director & Goverance Chair",
+        picture: "/kayla.png",
+        bio: "Kayla is....",
+        expanded: false,
       },
       {
-          name: 'Melissa Pearson',
-          title: 'Marketing and Communications Chair',
-          picture: '/melissa.png',
-          bio: 'Melissa is....'
-      },],
+        name: "Melissa Pearson",
+        title: "Marketing and Communications Chair",
+        picture: "/melissa.png",
+        bio: "Melissa is....",
+        expanded: false,
+      },
+    ],
     images: "/images/board.jpeg",
     features: ["Outdoor activities", "Educational programs", "Social skills"],
     price: "$5-$25",
@@ -171,10 +173,8 @@ export default function AboutUsPage() {
     },
   ]);
 
-
   return (
     <>
-    
       <div className="min-h-full">
         <Disclosure as="nav" className="border-b border-gray-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -186,19 +186,19 @@ export default function AboutUsPage() {
                       key={item.name}
                       href={item.href}
                       onClick={() => {
-                      setActiveProduct(products[index]);
-                      setActiveNavigation((prev) =>
-                        prev.map((navItem, navIndex) => ({
-                        ...navItem,
-                        current: navIndex === index,
-                        }))
-                      );
+                        setActiveProduct(products[index]);
+                        setActiveNavigation((prev) =>
+                          prev.map((navItem, navIndex) => ({
+                            ...navItem,
+                            current: navIndex === index,
+                          }))
+                        );
                       }}
                       aria-current={item.current ? "page" : undefined}
                       className={`inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium ${
-                      item.current
-                        ? "border-blue text-gray-900"
-                        : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                        item.current
+                          ? "border-blue text-gray-900"
+                          : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
                       }`}
                     >
                       {item.name}
@@ -281,27 +281,77 @@ export default function AboutUsPage() {
                         <div className="mt-4 space-y-6">
                           {activeProduct.boardMembers && (
                             <div className="">
-                              {activeProduct.boardMembers.map((member, index) => (
-                                <div key={index} className="grid grid-cols-1 gap-6 p-5">
-                                  <div className="bg-white shadow-md rounded-lg p-6 flex items-center">
-                                    <Image src={member.picture} alt={member.name} height="50" width="50" className="w-16 h-16 object-cover rounded-full mr-4" />
-                                    <div>
-                                      <h2 className="text-xl font-semibold">{member.name}</h2>
-                                      <p className="mt-2 text-gray-600">{member.title}</p>
-                                      <p className="mt-2 text-gray-600">{member.bio}</p>
+                              {activeProduct.boardMembers.map(
+                                (member, index) => (
+                                  <div
+                                    key={index}
+                                    className="grid grid-cols-1 gap-6 p-5"
+                                  >
+                                    <div className="bg-white shadow-md rounded-lg p-6 flex items-center">
+                                      <Image
+                                        src={member.picture}
+                                        alt={member.name}
+                                        height="50"
+                                        width="50"
+                                        className="w-16 h-16 object-cover rounded-full mr-4"
+                                      />
+                                      <div>
+                                        <h2 className="text-xl font-semibold">
+                                          {member.name}
+                                        </h2>
+                                        <p className="mt-2 text-gray-600">
+                                          {member.title}
+                                        </p>
+                                        <p className="mt-2 text-gray-600">
+                                          {member.bio.length > 100 ? (
+                                            <>
+                                              {member.bio.substring(0, 118)}...
+                                              <button
+                                                onClick={() => {
+                                                  const newBoardMembers =
+                                                    activeProduct.boardMembers!.map(
+                                                      (m, i) =>
+                                                        i === index
+                                                          ? {
+                                                              ...m,
+                                                              expanded:
+                                                                !m.expanded,
+                                                            }
+                                                          : m
+                                                    );
+                                                  setActiveProduct({
+                                                    ...activeProduct,
+                                                    boardMembers:
+                                                      newBoardMembers,
+                                                  });
+                                                }}
+                                                className="text-blue-500 hover:underline"
+                                              >
+                                                {member.expanded
+                                                  ? "Show less"
+                                                  : "Read more"}
+                                              </button>
+                                            </>
+                                          ) : (
+                                            member.bio
+                                          )}
+                                        </p>
+                                        {member.expanded && (
+                                          <p className="mt-2 text-gray-600">
+                                            {member.bio.substring(118)}
+                                          </p>
+                                        )}
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              ))}
+                                )
+                              )}
                             </div>
                           )}
                         </div>
                         <p className="text-base text-gray-500">
                           {activeProduct.description}
                         </p>
-                       
-
-                        
                       </section>
                     </div>
 
@@ -322,7 +372,6 @@ export default function AboutUsPage() {
                         <h2 id="options-heading" className="sr-only">
                           Product options
                         </h2>
-
                       </section>
                     </div>
                   </div>
