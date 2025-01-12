@@ -98,12 +98,12 @@ const products = [
   },
   {
     name: "Board Members",
-    description: "Fun and educational day camps for kids of all ages.",
+    description: "Acurate as of January 2025",
     boardMembers: [
       {
           name: 'Robert Von Der Becke',
           title: 'President',
-          picture: '/robertv.jpg',
+          picture: '/robert.png',
           bio: 'Robert is a seasoned professional with over 20 years of experience in the industry.'
       },
       {
@@ -124,7 +124,7 @@ const products = [
           picture: '/melissa.png',
           bio: 'Melissa is....'
       },],
-    images: "/images/daycamp.jpeg",
+    images: "/images/board.jpeg",
     features: ["Outdoor activities", "Educational programs", "Social skills"],
     price: "$5-$25",
   },
@@ -280,7 +280,7 @@ export default function AboutUsPage() {
 
                         <div className="mt-4 space-y-6">
                           {activeProduct.boardMembers && (
-                            <div className="pt-6 min-h-screen bg-gray-100">
+                            <div className="">
                               {activeProduct.boardMembers.map((member, index) => (
                                 <div key={index} className="grid grid-cols-1 gap-6 p-5">
                                   <div className="bg-white shadow-md rounded-lg p-6 flex items-center">
