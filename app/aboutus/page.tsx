@@ -95,27 +95,24 @@ const products = [
         name: "Robert Von Der Becke",
         title: "President",
         picture: "/robert.png",
-        bio: `With over 20 years of leadership experience, Robert Von Der Becke is a visionary in the field of psychology and behavioral science. Holding a Master’s degree in Psychology with an emphasis in Applied Behavior, Robert is currently pursuing his doctorate in Psychology and Behavioral Neuroscience, further solidifying his expertise in understanding and influencing human behavior. As the founder and head of both the VA School and Crossroads Academy, Robert has dedicated his career to pioneering proactive approaches to behavioral modification. His innovative methodologies center on pivotal behavior strategies, leveraging the power of sports and play to promote meaningful, lasting change. These evidence-based practices have not only transformed individual lives but have also set a new standard for integrating behavioral science into education and community development. A passionate advocate for growth through action, Robert continues to inspire and lead initiatives that bridge academic research with real-world application, fostering environments where individuals and communities can thrive.`,
+        bio: `With over 20 years of leadership experience, Robert Von Der Becke is a visionary in the field of psychology and behavioral science. `,
+        moreBio: `Holding a Master’s degree in Psychology with an emphasis in Applied Behavior, Robert is currently pursuing his doctorate in Psychology and Behavioral Neuroscience, further solidifying his expertise in understanding and influencing human behavior. As the founder and head of both the VA School and Crossroads Academy, Robert has dedicated his career to pioneering proactive approaches to behavioral modification. His innovative methodologies center on pivotal behavior strategies, leveraging the power of sports and play to promote meaningful, lasting change. These evidence-based practices have not only transformed individual lives but have also set a new standard for integrating behavioral science into education and community development. A passionate advocate for growth through action, Robert continues to inspire and lead initiatives that bridge academic research with real-world application, fostering environments where individuals and communities can thrive.`,
         expanded: false,
       },
       {
         name: "Ryann Von Der Becke",
         title: "VP & Secretary",
         picture: "/ryann.png",
-        bio: `
-
-For over 20 years, Ryann Von Der Becke has been the backbone of the VA School, ensuring its operations run smoothly and its mission thrives. With exceptional talents in graphic design, office management, and organizational strategy, Ryann seamlessly manages the intricate details that keep the school functioning at its best.
-
-Ryann is dedicated to bringing the core values of the VA School—self-control, self-awareness, and strength of character—to life. Her ability to align daily operations with these principles has been instrumental in achieving the school’s objectives. Whether through streamlining processes or creating visually compelling materials that reflect the school’s mission, Ryann’s contributions are invaluable.
-
-Indispensable in handling all operational requirements, Ryann’s unwavering commitment ensures that the VA School continues to be a beacon of growth and excellence for its students and community.`,
+        bio: `For over 20 years, Ryann Von Der Becke has been the backbone of the VA School, ensuring its operations run smoothly and its mission thrives. `,
+        moreBio: `With exceptional talents in graphic design, office management, and organizational strategy, Ryann seamlessly manages the intricate details that keep the school functioning at its best. Ryann is dedicated to bringing the core values of the VA School—self-control, self-awareness, and strength of character—to life. Her ability to align daily operations with these principles has been instrumental in achieving the school’s objectives. Whether through streamlining processes or creating visually compelling materials that reflect the school’s mission, Ryann’s contributions are invaluable. Indispensable in handling all operational requirements, Ryann’s unwavering commitment ensures that the VA School continues to be a beacon of growth and excellence for its students and community.`,
         expanded: false,
       },
       {
         name: "Kayla Reetz",
         title: "Director & Goverance Chair",
         picture: "/kayla.png",
-        bio: `Kayla is native to Storm Lake and a graduate of Storm Lake High School.  After being a music educator for about 10 years, she found her passion and commitment to teaching yoga to children and adults alike.  In 2020, she received her 95 hour training from Challenge to Change, Inc., based in Dubuque, IA and furthered her yogic education to attain her 200 hour training in 2022 at Gray Lane Yoga in Waterloo. She is passionate about providing safe spaces for people to be their authentic selves and gain their social-emotional as well as academic education. Her long-term goal is to eventually attain her 800 hour training and offer yoga therapy sessions to the Storm Lake community.
+        bio: `Kayla is native to Storm Lake and a graduate of Storm Lake High School.`,
+        moreBio: `After being a music educator for about 10 years, she found her passion and commitment to teaching yoga to children and adults alike.  In 2020, she received her 95 hour training from Challenge to Change, Inc., based in Dubuque, IA and furthered her yogic education to attain her 200 hour training in 2022 at Gray Lane Yoga in Waterloo. She is passionate about providing safe spaces for people to be their authentic selves and gain their social-emotional as well as academic education. Her long-term goal is to eventually attain her 800 hour training and offer yoga therapy sessions to the Storm Lake community.
 `,
         expanded: false,
       },
@@ -123,7 +120,8 @@ Indispensable in handling all operational requirements, Ryann’s unwavering com
         name: "Melissa Pearson",
         title: "Marketing and Communications Chair",
         picture: "/melissa.png",
-        bio: "Melissa is....",
+        bio: `Melissa is....`,
+        moreBio: ``,
         expanded: false,
       },
     ],
@@ -304,44 +302,40 @@ export default function AboutUsPage() {
                                           {member.title}
                                         </p>
                                         <p className="mt-2 text-gray-600">
-                                          {member.bio.length > 100 ? (
-                                            <>
-                                              {member.bio.substring(0, 118)}...
-                                              <button
-                                                onClick={() => {
-                                                  const newBoardMembers =
-                                                    activeProduct.boardMembers!.map(
-                                                      (m, i) =>
-                                                        i === index
-                                                          ? {
-                                                              ...m,
-                                                              expanded:
-                                                                !m.expanded,
-                                                            }
-                                                          : m
-                                                    );
-                                                  setActiveProduct({
-                                                    ...activeProduct,
-                                                    boardMembers:
-                                                      newBoardMembers,
-                                                  });
-                                                }}
-                                                className="text-blue-500 hover:underline"
-                                              >
-                                                {member.expanded
-                                                  ? "Show less"
-                                                  : "Read more"}
-                                              </button>
-                                            </>
-                                          ) : (
-                                            member.bio
+                                          {member.bio}
+                                          {member.expanded && (
+                                            <p className="mt-2 text-gray-600">
+                                              {member.moreBio}
+                                            </p>
                                           )}
+                                          
+                                            {member.bio.substring(0, 118)}...
+                                            <button
+                                              onClick={() => {
+                                                const newBoardMembers =
+                                                  activeProduct.boardMembers!.map(
+                                                    (m, i) =>
+                                                      i === index
+                                                        ? {
+                                                            ...m,
+                                                            expanded:
+                                                              !m.expanded,
+                                                          }
+                                                        : m
+                                                  );
+                                                setActiveProduct({
+                                                  ...activeProduct,
+                                                  boardMembers: newBoardMembers,
+                                                });
+                                              }}
+                                              className="text-blue-500 hover:underline"
+                                            >
+                                              {member.expanded
+                                                ? " Show less"
+                                                : " Read more"}
+                                            </button>
+                                          
                                         </p>
-                                        {member.expanded && (
-                                          <p className="mt-2 text-gray-600">
-                                            {member.bio.substring(118)}
-                                          </p>
-                                        )}
                                       </div>
                                     </div>
                                   </div>
