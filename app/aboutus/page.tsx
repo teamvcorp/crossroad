@@ -115,7 +115,8 @@ Indispensable in handling all operational requirements, Ryann’s unwavering com
         name: "Kayla Reetz",
         title: "Director & Goverance Chair",
         picture: "/kayla.png",
-        bio: "Kayla is....",
+        bio: `Kayla is native to Storm Lake and a graduate of Storm Lake High School.  After being a music educator for about 10 years, she found her passion and commitment to teaching yoga to children and adults alike.  In 2020, she received her 95 hour training from Challenge to Change, Inc., based in Dubuque, IA and furthered her yogic education to attain her 200 hour training in 2022 at Gray Lane Yoga in Waterloo. She is passionate about providing safe spaces for people to be their authentic selves and gain their social-emotional as well as academic education. Her long-term goal is to eventually attain her 800 hour training and offer yoga therapy sessions to the Storm Lake community.
+`,
         expanded: false,
       },
       {
